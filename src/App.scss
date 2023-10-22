@@ -12,9 +12,16 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5vh;
+  height: 95vh;
 }
 
 .title {
@@ -22,7 +29,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3vh;
 
   &__title {
     font-size: 2rem;
@@ -35,21 +41,59 @@ body {
 
 .nav {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: auto auto auto;
   justify-items: center;
+  gap: 2vw;
 
   &__link {
     color: inherit;
     text-decoration: none;
-  }
+    transition: 0.3s ease-out color;
 
-  &__link:hover,
-  &__link--selected {
-    color: #ffce3c;
-    cursor: pointer;
+    &:hover,
+    &--selected {
+      color: #ffce3c;
+      cursor: pointer;
+    }
   }
 }
 
 .content {
   width: 60vw;
+  height: 70vh;
+  overflow: scroll;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1vh;
+
+  &__items {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 2vw;
+
+    &__item {
+      transition: 0.3s ease-out filter;
+      > img {
+        height: 30px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        filter: brightness(50%);
+      }
+    }
+  }
+
+  &__attributes {
+    font-size: 0.6rem;
+
+    &__link {
+      color: inherit;
+    }
+  }
 }

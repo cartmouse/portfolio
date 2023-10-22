@@ -31,6 +31,10 @@
     padding: 20px 0;
     gap: 10px;
 
+    &__text {
+      margin: 0 10%;
+    }
+
     &__image {
       width: 80%;
       border-radius: 5px;

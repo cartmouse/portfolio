@@ -1,7 +1,7 @@
 interface ProjectProps {
   title: string;
   desc: string;
-  image: string;
+  image?: string;
   display: boolean;
   onClick: () => void;
 }
@@ -20,7 +20,7 @@ export const Project = ({
       </div>
       {display && (
         <div className="project__content">
-          {desc}
+          <div className="project__content__text">{desc}</div>
           <img className="project__content__image" src={image}></img>
         </div>
       )}
