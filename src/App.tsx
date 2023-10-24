@@ -2,8 +2,8 @@ import { About } from "./pages/About/About";
 import "./App.scss";
 
 import { Link, Route, Routes, useLocation } from "react-router-dom";
-import { CV, Projects } from "./pages";
-import { Email, GitHub, LinkedIn } from "./assets";
+import { Projects } from "./pages";
+import { CV, Email, GitHub, LinkedIn } from "./assets";
 
 export const App = () => {
   const location = useLocation();
@@ -32,20 +32,14 @@ export const App = () => {
           >
             PROJECTS
           </Link>
-          <Link
-            className={`nav__link ${
-              location.pathname === "/cv" && "nav__link--selected"
-            }`}
-            to="/cv"
-          >
+          <a className="nav__link" href={CV} download>
             CV
-          </Link>
+          </a>
         </div>
         <div className="content">
           <Routes>
             <Route path="/" element={<About />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/cv" element={<CV />} />
           </Routes>
         </div>
         <div className="footer">

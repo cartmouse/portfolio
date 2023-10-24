@@ -1,14 +1,25 @@
 @import "../../vars.scss";
 
 .projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2vw;
+
+  &__titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2vh;
+  }
+
+  &__display {
+    height: 55vh;
+  }
 }
 
 .project {
   width: 100%;
+
   &__title {
     z-index: 2;
     background-color: $yellow;
@@ -20,6 +31,7 @@
   }
 
   &__content {
+    height: 100%;
     z-index: 1;
     border-radius: 5px;
     display: flex;
@@ -28,7 +40,7 @@
     justify-content: center;
     background-color: $cream;
     color: $red;
-    padding: 20px 0;
+    padding: 5px 0;
     gap: 10px;
 
     &__text {

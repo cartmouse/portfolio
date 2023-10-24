@@ -1,29 +1,14 @@
 interface ProjectProps {
   title: string;
-  desc: string;
-  image?: string;
-  display: boolean;
   onClick: () => void;
 }
 
-export const Project = ({
-  title,
-  desc,
-  image,
-  display,
-  onClick,
-}: ProjectProps) => {
+export const Project = ({ title, onClick }: ProjectProps) => {
   return (
     <div className="project">
       <div className="project__title" onClick={onClick}>
         {title}
       </div>
-      {display && (
-        <div className="project__content">
-          <div className="project__content__text">{desc}</div>
-          <img className="project__content__image" src={image}></img>
-        </div>
-      )}
     </div>
   );
 };
