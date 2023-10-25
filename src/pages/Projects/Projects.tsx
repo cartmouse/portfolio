@@ -1,7 +1,5 @@
 import { useMemo, useState } from "react";
-import { Project } from "./Project";
 import "./Projects.scss";
-import { EvasButtons } from "../../assets";
 
 interface ProjectInfo {
   title: string;
@@ -11,30 +9,30 @@ interface ProjectInfo {
 
 const projects: ProjectInfo[] = [
   {
-    title: "Evie's Talking Buttons",
+    title: "EVIE'S TALKING BUTTONS",
     text: "An aid for people who sometimes prefer to remain non-verbal. Customisable buttons that use the device's text-to-speech engine to say the words aloud.",
-    image: EvasButtons,
+    // image: EviesButtons,
   },
   {
-    title: "TouchFree",
+    title: "TOUCHFREE",
     text: "An engine for mid-air interaction and tooling library for web application development",
   },
   {
-    title: "Ballpit",
+    title: "BALLPIT",
     text: "3D interactable ballpit, created as a demo for TouchFree.",
   },
   {
-    title: "Storefront",
+    title: "STOREFRONT",
     text: "A quick service retail application, created as a demo for TouchFree.",
   },
   {
-    title: "shOOH",
+    title: "SHOOH",
     text: "A product customisation application, created as a demo for TouchFree.",
   },
 ];
 
 export const Projects = () => {
-  const [selected, setSelected] = useState("Evie's Talking Buttons");
+  const [selected, setSelected] = useState("EVIE'S TALKING BUTTONS");
 
   const selectedProject = useMemo(
     () => projects.filter((project) => project.title === selected)[0],
@@ -46,19 +44,25 @@ export const Projects = () => {
       <div className="projects__titles">
         {projects.map(({ title }, index) => {
           return (
-            <Project
-              title={title}
+            <div
               key={index}
+              className={`projects__titles__title ${
+                selected === title && "projects__titles__title--selected"
+              }`}
               onClick={() => setSelected((t) => (t === title ? "" : title))}
-            />
+            >
+              {title}
+            </div>
           );
         })}
       </div>
       <div className="projects__display">
-        <div className="project__content">
-          <div className="project__content__text">{selectedProject?.text}</div>
+        <div className="projects__display__content">
+          <div className="projects__display__content__text">
+            {selectedProject?.text}
+          </div>
           <img
-            className="project__content__image"
+            className="projects__display__content__image"
             src={selectedProject?.image}
           ></img>
         </div>

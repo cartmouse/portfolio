@@ -1,10 +1,28 @@
-$yellow: #ffce3c;
-$red: #491314;
-$cream: #fffadb;
-$background-one: #25434b;
-$background-two: #284b54;
+$prussian-blue: #012a4aff;
+$indigo-dye: #013a63ff;
+$indigo-dye-2: #01497cff;
+$indigo-dye-3: #014f86ff;
+$ucla-blue: #2a6f97ff;
+$cerulean: #2c7da0ff;
+$air-force-blue: #468fafff;
+$air-superiority-blue: #61a5c2ff;
+$sky-blue: #89c2d9ff;
+$light-blue: #a9d6e5ff;
+
 $background-gradient: linear-gradient(
   to right,
-  $background-one,
-  $background-two
+  $indigo-dye-2,
+  darken($indigo-dye-2, 3%)
 );
+
+@mixin link {
+  color: inherit;
+  text-decoration: none;
+  transition: 0.3s ease-out color;
+
+  &:hover,
+  &--selected {
+    color: $light-blue;
+    cursor: pointer;
+  }
+}

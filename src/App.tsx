@@ -1,47 +1,38 @@
-import { About } from "./pages/About/About";
 import "./App.scss";
 
-import { Link, Route, Routes, useLocation } from "react-router-dom";
-import { Projects } from "./pages";
 import { CV, Email, GitHub, LinkedIn } from "./assets";
+import { Band } from "./Band";
+import { About, Projects } from "./pages";
 
 export const App = () => {
-  const location = useLocation();
-
   return (
     <div className="background">
       <div className="container">
-        <div className="title">
+        <div className="title" id="">
           <div className="title__title">TOM CARTWRIGHT</div>
           <div className="title__subtitle">SOFTWARE ENGINEER</div>
         </div>
         <div className="nav">
-          <Link
-            className={`nav__link ${
-              location.pathname === "/" && "nav__link--selected"
-            }`}
-            to="/"
-          >
+          <a className="nav__link" href="#">
+            HOME
+          </a>
+          <a className="nav__link" href="#about">
             ABOUT
-          </Link>
-          <Link
-            className={`nav__link ${
-              location.pathname === "/projects" && "nav__link--selected"
-            }`}
-            to="/projects"
-          >
+          </a>
+          <a className="nav__link" href="#projects">
             PROJECTS
-          </Link>
+          </a>
           <a className="nav__link" href={CV} download>
             CV
           </a>
         </div>
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-          </Routes>
-        </div>
+        <Band color="#2c7da0" index={0}></Band>
+        <Band color="#2a6f97" index={1} id="about">
+          <About />
+        </Band>
+        <Band color="#014f86" index={2} id="projects">
+          <Projects />
+        </Band>
         <div className="footer">
           <div className="footer__items">
             <a
