@@ -21,20 +21,20 @@ const projects: ProjectInfo[] = [
   },
   {
     title: "Ballpit",
-    text: "",
+    text: "3D interactable ballpit, created as a demo for TouchFree.",
   },
   {
     title: "Storefront",
-    text: "",
+    text: "A quick service retail application, created as a demo for TouchFree.",
   },
   {
     title: "shOOH",
-    text: "",
+    text: "A product customisation application, created as a demo for TouchFree.",
   },
 ];
 
 export const Projects = () => {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState("Evie's Talking Buttons");
 
   const selectedProject = useMemo(
     () => projects.filter((project) => project.title === selected)[0],
