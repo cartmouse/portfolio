@@ -1,13 +1,13 @@
-$prussian-blue: #012a4aff;
-$indigo-dye: #013a63ff;
-$indigo-dye-2: #01497cff;
-$indigo-dye-3: #014f86ff;
-$ucla-blue: #2a6f97ff;
-$cerulean: #2c7da0ff;
-$air-force-blue: #468fafff;
-$air-superiority-blue: #61a5c2ff;
-$sky-blue: #89c2d9ff;
-$light-blue: #a9d6e5ff;
+$prussian-blue: #012a4a;
+$indigo-dye: #013a63;
+$indigo-dye-2: #01497c;
+$indigo-dye-3: #014f86;
+$ucla-blue: #2a6f97;
+$cerulean: #2c7da0;
+$air-force-blue: #468faf;
+$air-superiority-blue: #61a5c2;
+$sky-blue: #89c2d9;
+$light-blue: #a9d6e5;
 
 $background-gradient: linear-gradient(
   to right,
@@ -15,14 +15,16 @@ $background-gradient: linear-gradient(
   darken($indigo-dye-2, 3%)
 );
 
+$nav-size: 3rem;
+
 @mixin link {
   color: inherit;
   text-decoration: none;
   transition: 0.3s ease-out color;
+  cursor: pointer;
 
   &:hover,
   &--selected {
     color: $light-blue;
-    cursor: pointer;
   }
 }

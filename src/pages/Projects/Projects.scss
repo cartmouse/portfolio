@@ -1,42 +1,20 @@
 @import "../../vars.scss";
 
 .projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2vh;
-
   &__titles {
+    position: sticky;
+    top: 3rem;
     width: 100%;
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     justify-items: center;
+    align-items: center;
     gap: 1vw;
-    margin: 0.8rem 0;
+    height: $nav-size * 2;
+    background: $background-gradient;
 
     &__title {
       @include link;
-    }
-  }
-
-  &__display {
-    width: 100%;
-
-    &__content {
-      border-radius: 5px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-
-      &__text {
-        margin: 2% 10%;
-      }
-
-      &__image {
-        align-self: center;
-        height: 80%;
-        border-radius: 5px;
-        margin-bottom: 20px;
-      }
     }
   }
 }

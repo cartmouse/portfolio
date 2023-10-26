@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import "./App.scss";
 
 import { CV, Email, GitHub, LinkedIn } from "./assets";
@@ -5,6 +6,13 @@ import { Band } from "./Band";
 import { About, Projects } from "./pages";
 
 export const App = () => {
+  const [url, setUrl] = useState("");
+  useEffect(() => {
+    window.addEventListener("hashchange", (event) => {
+      setUrl(event.newURL);
+    });
+  }, []);
+
   return (
     <div className="background">
       <div className="container">
@@ -13,13 +21,28 @@ export const App = () => {
           <div className="title__subtitle">SOFTWARE ENGINEER</div>
         </div>
         <div className="nav">
-          <a className="nav__link" href="#">
+          <a
+            className={`nav__link ${
+              url.endsWith("#") && "nav__link--selected"
+            }`}
+            href="#"
+          >
             HOME
           </a>
-          <a className="nav__link" href="#about">
+          <a
+            className={`nav__link ${
+              url.endsWith("#about") && "nav__link--selected"
+            }`}
+            href="#about"
+          >
             ABOUT
           </a>
-          <a className="nav__link" href="#projects">
+          <a
+            className={`nav__link ${
+              url.includes("#projects") && "nav__link--selected"
+            }`}
+            href="#projects"
+          >
             PROJECTS
           </a>
           <a className="nav__link" href={CV} download>
@@ -30,9 +53,7 @@ export const App = () => {
         <Band color="#2a6f97" index={1} id="about">
           <About />
         </Band>
-        <Band color="#014f86" index={2} id="projects">
-          <Projects />
-        </Band>
+        <Projects url={url} />
         <div className="footer">
           <div className="footer__items">
             <a

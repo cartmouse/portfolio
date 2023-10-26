@@ -1,4 +1,21 @@
 .band {
   width: 100vw;
   height: 40vh;
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+
+    &__text {
+      margin: 2.5vh;
+    }
+
+    &__image {
+      max-height: 35vh;
+      max-width: 50vw;
+      justify-self: center;
+      align-self: center;
+      border-radius: 3%;
+    }
+  }
 }
