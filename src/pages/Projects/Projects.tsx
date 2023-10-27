@@ -7,6 +7,7 @@ interface ProjectInfo {
   title: string;
   text: string;
   image?: string;
+  link?: string;
 }
 
 const projects: ProjectInfo[] = [
@@ -15,6 +16,7 @@ const projects: ProjectInfo[] = [
     title: "EVIE'S TALKING BUTTONS",
     text: "An aid for people who sometimes prefer to remain non-verbal. Customisable buttons that use the device's text-to-speech engine to say the words aloud.",
     image: EviesButtons,
+    link: "https://eviesbuttons.netlify.app",
   },
   {
     id: "touchfree",
@@ -73,17 +75,27 @@ export const Projects = ({ url }: ProjectsProps) => {
         })}
       </div>
       <div className="projects__display">
-        {projects.map(({ text, image, id }, index) => {
+        {projects.map(({ title, text, image, id, link }, index) => {
           return (
             <Band
-              color={`#2c7da0`}
+              color="#2a6f97"
               index={index}
               key={index}
               id={`projects/${id}`}
               double
               image={image}
             >
-              {text}
+              <>
+                <div className="band__content__text__title">{title}</div>
+                <div className="band__content__text__text">{text}</div>
+                <a
+                  className="band__content__text__link"
+                  href={link}
+                  target="_blank"
+                >
+                  {link}
+                </a>
+              </>
             </Band>
           );
         })}

@@ -8,6 +8,7 @@ $air-force-blue: #468faf;
 $air-superiority-blue: #61a5c2;
 $sky-blue: #89c2d9;
 $light-blue: #a9d6e5;
+$yellow: #ffff4d;
 
 $background-gradient: linear-gradient(
   to right,
@@ -25,6 +26,6 @@ $nav-size: 3rem;
 
   &:hover,
   &--selected {
-    color: $light-blue;
+    color: $yellow;
   }
 }

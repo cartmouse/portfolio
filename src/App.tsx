@@ -7,6 +7,7 @@ import { About, Projects } from "./pages";
 
 export const App = () => {
   const [url, setUrl] = useState("");
+
   useEffect(() => {
     window.addEventListener("hashchange", (event) => {
       setUrl(event.newURL);
@@ -21,65 +22,60 @@ export const App = () => {
           <div className="title__subtitle">SOFTWARE ENGINEER</div>
         </div>
         <div className="nav">
-          <a
-            className={`nav__link ${
-              url.endsWith("#") && "nav__link--selected"
-            }`}
-            href="#"
-          >
-            HOME
-          </a>
-          <a
-            className={`nav__link ${
-              url.endsWith("#about") && "nav__link--selected"
-            }`}
-            href="#about"
-          >
-            ABOUT
-          </a>
-          <a
-            className={`nav__link ${
-              url.includes("#projects") && "nav__link--selected"
-            }`}
-            href="#projects"
-          >
-            PROJECTS
-          </a>
+          <NavLink text="ABOUT" url={url} anchor="#" />
+          <NavLink text="PROJECTS" url={url} anchor="#projects" />
           <a className="nav__link" href={CV} download>
             CV
           </a>
         </div>
-        <Band color="#2c7da0" index={0}></Band>
-        <Band color="#2a6f97" index={1} id="about">
+        <Band color="#2a6f97" index={0} id="">
           <About />
         </Band>
         <Projects url={url} />
         <div className="footer">
           <div className="footer__items">
-            <a
-              className="footer__items__item"
-              href="https://github.com/cartmouse"
-              target="_blank"
-            >
-              <img src={GitHub}></img>
-            </a>
-            <a
-              className="footer__items__item"
+            <ImageLink href="https://github.com/cartmouse" image={GitHub} />
+            <ImageLink
               href="https://linkedin.com/in/tom-cartwright97"
-              target="_blank"
-            >
-              <img src={LinkedIn}></img>
-            </a>
-            <a
-              className="footer__items__item"
-              href="mailto:tom-cartwright@outlook.com"
-              target="_blank"
-            >
-              <img src={Email}></img>
-            </a>
+              image={LinkedIn}
+            />
+            <ImageLink href="mailto:tom-cartwright@outlook.com" image={Email} />
           </div>
         </div>
       </div>
     </div>
+  );
+};
+
+interface NavLinkProps {
+  text: string;
+  url: string;
+  anchor: string;
+}
+
+const NavLink = ({ text, url, anchor }: NavLinkProps) => {
+  const hash = `#${url.split("#").at(-1)}`;
+  const selected =
+    hash.startsWith(anchor) && hash.split("/")[0].endsWith(anchor);
+  return (
+    <a
+      className={`nav__link ${selected && "nav__link--selected"}`}
+      href={anchor}
+    >
+      {text.toUpperCase()}
+    </a>
+  );
+};
+
+interface ImageLinkProps {
+  href: string;
+  image: string;
+}
+
+const ImageLink = ({ href, image }: ImageLinkProps) => {
+  return (
+    <a className="footer__items__item" href={href} target="_blank">
+      <img src={image}></img>
+    </a>
   );
 };
