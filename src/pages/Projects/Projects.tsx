@@ -1,3 +1,4 @@
+import { MutableRefObject } from "react";
 import { Band } from "../../Band";
 import { EviesButtons } from "../../assets";
 import "./Projects.scss";
@@ -52,9 +53,10 @@ const projects: ProjectInfo[] = [
 
 interface ProjectsProps {
   url: string;
+  bandRefs: MutableRefObject<(HTMLDivElement | null)[]>;
 }
 
-export const Projects = ({ url }: ProjectsProps) => {
+export const Projects = ({ url, bandRefs }: ProjectsProps) => {
   return (
     <div className="projects">
       <div className="anchor anchor--single" id="projects" />
@@ -84,6 +86,7 @@ export const Projects = ({ url }: ProjectsProps) => {
               id={`projects/${id}`}
               double
               image={image}
+              bandRefs={bandRefs}
             >
               <>
                 <div className="band__content__text__title">{title}</div>

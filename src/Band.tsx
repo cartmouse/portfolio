@@ -1,10 +1,11 @@
 import "./Band.scss";
 
-import { ReactNode } from "react";
+import { MutableRefObject, ReactNode } from "react";
 
 interface BandProps {
   color: string;
   index: number;
+  bandRefs: MutableRefObject<(HTMLDivElement | null)[]>;
   id?: string;
   double?: boolean;
   children?: ReactNode;
@@ -14,6 +15,7 @@ interface BandProps {
 export const Band = ({
   color,
   image,
+  bandRefs,
   id,
   children,
   index,
@@ -29,6 +31,7 @@ export const Band = ({
       <div
         className={`anchor ${double ? "anchor--double" : "anchor--single"}`}
         id={id}
+        ref={(r) => bandRefs?.current.push(r)}
       />
       <div className="band__content">
         {index % 2 ? (

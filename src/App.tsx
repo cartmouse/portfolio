@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.scss";
 
 import { CV, Email, GitHub, LinkedIn } from "./assets";
@@ -7,31 +7,42 @@ import { About, Projects } from "./pages";
 
 export const App = () => {
   const [url, setUrl] = useState("");
+  const bandRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     window.addEventListener("hashchange", (event) => {
       setUrl(event.newURL);
+    });
+    window.addEventListener("scroll", () => {
+      bandRefs.current.forEach((ref) => {
+        if (!ref) return;
+        const rect = ref.getBoundingClientRect();
+        const top = rect.top;
+        if (top >= 0 && top < 100) {
+          setUrl(window.location.origin + `/#${ref.id}`);
+        }
+      });
     });
   }, []);
 
   return (
     <div className="background">
       <div className="container">
-        <div className="title" id="">
+        <div className="title">
           <div className="title__title">TOM CARTWRIGHT</div>
           <div className="title__subtitle">SOFTWARE ENGINEER</div>
         </div>
         <div className="nav">
-          <NavLink text="ABOUT" url={url} anchor="#" />
+          <NavLink text="ABOUT" url={url} anchor="#about" />
           <NavLink text="PROJECTS" url={url} anchor="#projects" />
           <a className="nav__link" href={CV} download>
             CV
           </a>
         </div>
-        <Band color="#2a6f97" index={0} id="">
+        <Band color="#2a6f97" index={0} id="about" bandRefs={bandRefs}>
           <About />
         </Band>
-        <Projects url={url} />
+        <Projects url={url} bandRefs={bandRefs} />
         <div className="footer">
           <div className="footer__items">
             <ImageLink href="https://github.com/cartmouse" image={GitHub} />
