@@ -1,5 +1,5 @@
+@use "./vars.module.scss";
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
-@import "./vars.scss";
 
 html {
   scroll-behavior: smooth;
@@ -7,24 +7,27 @@ html {
 
 body {
   margin: 0;
-  background: $background-gradient;
+  background: vars.$background-gradient;
 }
 
 .anchor {
   display: block;
   position: relative;
   visibility: hidden;
+  &--no-gap {
+    top: -1 * vars.$nav-size;
+  }
   &--single {
-    top: -$nav-size;
+    top: -1 * vars.$nav-size - vars.$band-margin * 0.5;
   }
   &--double {
-    top: 3 * -$nav-size;
+    top: -3 * vars.$nav-size - vars.$band-margin * 0.5;
   }
 }
 
 .background {
   font-family: "Metrophobic", sans-serif;
-  color: #fffadb;
+  color: white;
   width: 100vw;
 }
 
@@ -37,7 +40,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1.5rem 0;
+  padding: 1.5rem 0;
+  background: vars.$background-gradient-alt;
 
   &__title {
     font-size: 2rem;
@@ -52,16 +56,17 @@ body {
   width: 100%;
   position: sticky;
   top: 0;
-  background: $background-gradient;
+  background: vars.$background-gradient-alt;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   justify-items: center;
   align-items: center;
+  border-bottom: 1px solid vars.$light-blue;
 
-  height: $nav-size;
+  height: vars.$nav-size;
 
   &__link {
-    @include link;
+    @include vars.link;
   }
 }
 
@@ -77,29 +82,11 @@ body {
   gap: 1vh;
   margin: 1.5rem 0;
 
-  &__items {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 2vw;
+  &__attr {
+    font-size: 0.7rem;
 
-    &__item {
-      transition: 0.3s ease-out filter;
-      > img {
-        height: 30px;
-      }
-
-      &:hover {
-        cursor: pointer;
-        filter: brightness(50%);
-      }
-    }
-  }
-
-  &__attributes {
-    font-size: 0.6rem;
-
-    &__link {
-      color: inherit;
+    & > a {
+      color: vars.$yellow;
     }
   }
 }

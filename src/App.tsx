@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.scss";
+import colors from "./vars.module.scss";
 
-import { CV, Email, GitHub, LinkedIn } from "./assets";
+import { CV, Profile } from "./assets";
 import { Band } from "./Band";
 import { About, Projects } from "./pages";
+import { ImageLinks } from "./pages/Links/ImageLinks";
 
 export const App = () => {
   const [url, setUrl] = useState("");
@@ -18,7 +20,7 @@ export const App = () => {
         if (!ref) return;
         const rect = ref.getBoundingClientRect();
         const top = rect.top;
-        if (top >= 0 && top < 100) {
+        if (top >= 0 && top < 50) {
           setUrl(window.location.origin + `/#${ref.id}`);
         }
       });
@@ -27,30 +29,44 @@ export const App = () => {
 
   return (
     <div className="background">
-      <div className="container">
+      <div className="container" id="" ref={(r) => bandRefs.current.push(r)}>
         <div className="title">
           <div className="title__title">TOM CARTWRIGHT</div>
           <div className="title__subtitle">SOFTWARE ENGINEER</div>
         </div>
         <div className="nav">
+          <NavLink text="HOME" url={url} anchor="#" />
           <NavLink text="ABOUT" url={url} anchor="#about" />
           <NavLink text="PROJECTS" url={url} anchor="#projects" />
-          <a className="nav__link" href={CV} download>
+          <a className="nav__link" href={CV} target="_blank">
             CV
           </a>
         </div>
-        <Band color="#2a6f97" index={0} id="about" bandRefs={bandRefs}>
+        <Band
+          color={colors["uclaBlue"]}
+          index={0}
+          id="about"
+          bandRefs={bandRefs}
+          image={Profile}
+          circle
+        >
           <About />
         </Band>
         <Projects url={url} bandRefs={bandRefs} />
         <div className="footer">
-          <div className="footer__items">
-            <ImageLink href="https://github.com/cartmouse" image={GitHub} />
-            <ImageLink
-              href="https://linkedin.com/in/tom-cartwright97"
-              image={LinkedIn}
-            />
-            <ImageLink href="mailto:tom-cartwright@outlook.com" image={Email} />
+          <ImageLinks />
+          <div className="footer__attr">
+            Favicon by{" "}
+            <a
+              href="https://dribbble.com/limastd?ref=svgrepo.com"
+              target="_blank"
+            >
+              Lima Studio
+            </a>{" "}
+            in CC Attribution License via{" "}
+            <a href="https://www.svgrepo.com/" target="_blank">
+              SVG Repo
+            </a>
           </div>
         </div>
       </div>
@@ -74,19 +90,6 @@ const NavLink = ({ text, url, anchor }: NavLinkProps) => {
       href={anchor}
     >
       {text.toUpperCase()}
-    </a>
-  );
-};
-
-interface ImageLinkProps {
-  href: string;
-  image: string;
-}
-
-const ImageLink = ({ href, image }: ImageLinkProps) => {
-  return (
-    <a className="footer__items__item" href={href} target="_blank">
-      <img src={image}></img>
     </a>
   );
 };
