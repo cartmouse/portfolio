@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import "./App.scss";
 import colors from "./vars.module.scss";
 
-import { CV, Profile } from "./assets";
+import { Profile } from "./assets";
+import CV from "/Tom_Cartwright_CV.pdf";
 import { Band } from "./Band";
 import { About, Projects } from "./Components";
 import { ImageLinks } from "./Components/Links/ImageLinks";

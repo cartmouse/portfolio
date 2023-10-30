@@ -1,4 +1,4 @@
-import { EviesButtons, GitHub } from "../../assets";
+import { EviesButtons, GitHub, Widgets } from "../../assets";
 
 interface Link {
   url: string;
@@ -57,7 +57,7 @@ export const projectInfo: Project[] = [
     id: "widgets",
     title: "ULTRALEAP WIDGETS",
     text: "A selection of apps (and launcher) for gestural control of Windows and MacOS. Featuring actions such as: play/pause/skip music, navigate through presentation slides, point with a virtual laser, and controlling the cursor to click and scroll.",
-    image: EviesButtons,
+    image: Widgets,
     links: [
       {
         url: "https://leap2.ultraleap.com/ultraleap-widgets/",
