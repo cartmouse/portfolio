@@ -30,9 +30,7 @@ export const Band = ({
 
   const imVid = video ? (
     <iframe
-      className={`band__content__video ${
-        textLeft && "band__content__video--right"
-      }`}
+      className={`band__content__video ${textLeft && "band__content__video"}`}
       src={video}
       allowFullScreen
     />
@@ -41,7 +39,7 @@ export const Band = ({
       className={`band__content__image ${
         circle && "band__content__image--circle"
       }
-        ${textLeft && "band__content__image--right"}
+        ${textLeft && "band__content__image"}
       }`}
       src={image}
     />
@@ -64,15 +62,14 @@ export const Band = ({
       />
       <div className="band__content">
         <>
-          {!textLeft && imVid}
+          {imVid}
           <div
             className={`band__content__text ${
-              textLeft && "band__content__text--left"
+              textLeft && "band__content__text"
             }`}
           >
             {children}
           </div>
-          {textLeft && imVid}
         </>
       </div>
     </div>

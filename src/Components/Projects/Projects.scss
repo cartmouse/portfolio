@@ -1,5 +1,7 @@
 @use "../../vars.module.scss";
 
+$border-color: 1px solid vars.$light-blue;
+
 .projects {
   &__titles {
     position: sticky;
@@ -11,8 +13,8 @@
     align-items: center;
     height: vars.$nav-size * 2;
     background: vars.$background-gradient-alt;
-    border-top: 1px solid vars.$light-blue;
-    border-bottom: 1px solid vars.$light-blue;
+    border-top: $border-color;
+    border-bottom: $border-color;
 
     &__title {
       @include vars.link;

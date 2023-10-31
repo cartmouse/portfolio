@@ -81,6 +81,12 @@ export const projectInfo: Project[] = [
     tags: [dotnetTag, { text: "Avalonia", color: "#8b44ac" }],
   },
   {
+    id: "madronzio",
+    title: "MADRONZIO",
+    text: "A retail and brand exploration demo, created as a demo for TouchFree.",
+    tags: [tsTag, reactTag, tauriTag],
+  },
+  {
     id: "ballpit",
     title: "BALLPIT",
     text: "3D interactable ballpit, created as a demo for TouchFree.",
@@ -90,12 +96,6 @@ export const projectInfo: Project[] = [
     id: "storefront",
     title: "STOREFRONT",
     text: "A quick service retail application, created as a demo for TouchFree.",
-    tags: [tsTag, reactTag, tauriTag],
-  },
-  {
-    id: "madronzio",
-    title: "MADRONZIO",
-    text: "A retail and brand exploration demo, created as a demo for TouchFree.",
     tags: [tsTag, reactTag, tauriTag],
   },
   {

@@ -10,11 +10,14 @@ $shadow: 0px 2px 10px black;
   height: calc($vid-height + 4rem);
   margin: vars.$band-margin 0;
   box-shadow: $shadow;
+  display: flex;
+  justify-content: center;
 
   &__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100%;
+    max-width: 1500px;
 
     &__text {
       margin: 2.5vh;
@@ -84,9 +87,6 @@ $shadow: 0px 2px 10px black;
       &--circle {
         border-radius: 50%;
       }
-      &--right {
-        justify-self: flex-start;
-      }
     }
 
     &__video {
@@ -97,9 +97,6 @@ $shadow: 0px 2px 10px black;
       height: $vid-height;
       width: $vid-width;
       box-shadow: $shadow;
-      &--right {
-        justify-self: flex-start;
-      }
     }
   }
 }
