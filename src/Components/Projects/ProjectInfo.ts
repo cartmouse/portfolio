@@ -6,6 +6,11 @@ interface Link {
   image?: string;
 }
 
+interface Tag {
+  text: string;
+  color: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -13,7 +18,14 @@ export interface Project {
   image?: string;
   video?: string;
   links?: Link[];
+  tags?: Tag[];
 }
+
+const reactTag: Tag = { text: "ReactJS", color: "#149eca" };
+const tsTag: Tag = { text: "TypeScript", color: "#2b7cd0" };
+const dotnetTag: Tag = { text: ".NET", color: "#4c25d2" };
+const tauriTag: Tag = { text: "Tauri", color: "#ffc131" };
+const cppTag: Tag = { text: "C++", color: "#6d9cd5" };
 
 export const projectInfo: Project[] = [
   {
@@ -29,6 +41,7 @@ export const projectInfo: Project[] = [
         image: GitHub,
       },
     ],
+    tags: [tsTag, { text: "Preact", color: "#673ab8" }],
   },
   {
     id: "touchfree",
@@ -52,6 +65,7 @@ export const projectInfo: Project[] = [
         image: GitHub,
       },
     ],
+    tags: [tsTag, reactTag, dotnetTag],
   },
   {
     id: "widgets",
@@ -64,35 +78,36 @@ export const projectInfo: Project[] = [
         text: "LEARN MORE",
       },
     ],
+    tags: [dotnetTag, { text: "Avalonia", color: "#8b44ac" }],
   },
   {
     id: "ballpit",
     title: "BALLPIT",
     text: "3D interactable ballpit, created as a demo for TouchFree.",
-    image: EviesButtons,
+    tags: [tsTag, reactTag, tauriTag],
   },
   {
     id: "storefront",
     title: "STOREFRONT",
     text: "A quick service retail application, created as a demo for TouchFree.",
-    image: EviesButtons,
+    tags: [tsTag, reactTag, tauriTag],
   },
   {
     id: "madronzio",
     title: "MADRONZIO",
     text: "A retail and brand exploration demo, created as a demo for TouchFree.",
-    image: EviesButtons,
+    tags: [tsTag, reactTag, tauriTag],
   },
   {
     id: "shooh",
     title: "SHOOH",
     text: "A product customisation application, created as a demo for TouchFree.",
-    image: EviesButtons,
+    tags: [tsTag, reactTag, tauriTag],
   },
   {
     id: "tapa-tapa-tapa",
     title: "TAPA-TAPA-TAPA",
-    text: "A multi-tap delay DAW plugin written in C++ using the JUCE framework.",
+    text: "A multi-tap delay DAW plugin. Originally made as coursework for my degree.",
     links: [
       {
         url: "https://github.com/cartmouse/Tapa-Tapa-Tapa",
@@ -100,5 +115,6 @@ export const projectInfo: Project[] = [
         image: GitHub,
       },
     ],
+    tags: [cppTag],
   },
 ];

@@ -5,8 +5,7 @@ import colors from "./vars.module.scss";
 import { Profile } from "./assets";
 import CV from "/Tom_Cartwright_CV.pdf";
 import { Band } from "./Band";
-import { About, Projects } from "./Components";
-import { ImageLinks } from "./Components/Links/ImageLinks";
+import { About, Projects, ImageLinks } from "./Components";
 
 export const App = () => {
   const [url, setUrl] = useState("");

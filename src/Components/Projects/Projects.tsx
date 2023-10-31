@@ -3,6 +3,7 @@ import { Band } from "../../Band";
 import "./Projects.scss";
 import colors from "../../vars.module.scss";
 import { projectInfo } from "./ProjectInfo";
+import { alterColor } from "../../Utils";
 
 interface ProjectsProps {
   url: string;
@@ -30,43 +31,61 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
         })}
       </div>
       <div className="projects__display">
-        {projectInfo.map(({ title, text, image, id, links, video }, index) => {
-          return (
-            <Band
-              color={index % 2 ? colors["uclaBlue"] : colors["cerulean"]}
-              index={index}
-              key={index}
-              id={`projects/${id}`}
-              double
-              image={image}
-              video={video}
-              bandRefs={bandRefs}
-            >
-              <div className="band__content__text__title">{title}</div>
-              <div className="band__content__text__text">{text}</div>
-              <div className="band__content__text__links">
-                {links?.map(({ url, text, image }, index) => (
-                  <a
-                    className="band__content__text__links__link"
-                    href={url}
-                    target="_blank"
-                    key={index}
-                  >
-                    {image && (
-                      <img
-                        src={image}
-                        className="band__content__text__links__link__image"
-                      />
-                    )}
-                    <div className="band__content__text__links__link__text">
+        {projectInfo.map(
+          ({ title, text, image, id, links, video, tags }, i) => {
+            return (
+              <Band
+                color={i % 2 ? colors["uclaBlue"] : colors["cerulean"]}
+                index={i}
+                key={i}
+                id={`projects/${id}`}
+                double
+                image={image}
+                video={video}
+                bandRefs={bandRefs}
+              >
+                <div className="band__content__text__title">{title}</div>
+                <div className="band__content__text__tags">
+                  {tags?.map(({ text, color }, j) => (
+                    <div
+                      className="band__content__text__tags__tag"
+                      key={j}
+                      style={{
+                        background: `linear-gradient(to right, ${alterColor(
+                          color,
+                          1.1
+                        )}, ${color})`,
+                      }}
+                    >
                       {text}
                     </div>
-                  </a>
-                ))}
-              </div>
-            </Band>
-          );
-        })}
+                  ))}
+                </div>
+                <div className="band__content__text__text">{text}</div>
+                <div className="band__content__text__links">
+                  {links?.map(({ url, text, image }, j) => (
+                    <a
+                      className="band__content__text__links__link"
+                      href={url}
+                      target="_blank"
+                      key={j}
+                    >
+                      {image && (
+                        <img
+                          src={image}
+                          className="band__content__text__links__link__image"
+                        />
+                      )}
+                      <div className="band__content__text__links__link__text">
+                        {text}
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </Band>
+            );
+          }
+        )}
       </div>
     </div>
   );

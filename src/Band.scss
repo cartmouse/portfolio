@@ -23,6 +23,17 @@ $shadow: 0px 2px 10px black;
       align-items: flex-start;
       gap: 1rem;
 
+      &__tags {
+        display: flex;
+        gap: 1rem;
+
+        &__tag {
+          font-size: 0.9rem;
+          padding: 0.2rem 0.5rem;
+          border-radius: 5px;
+        }
+      }
+
       &__title {
         font-size: 1.2rem;
       }

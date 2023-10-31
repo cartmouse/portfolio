@@ -1,4 +1,4 @@
-import { ImageLinks } from "../Links/ImageLinks";
+import { ImageLinks } from "..";
 import "./About.scss";
 
 export const About = () => {

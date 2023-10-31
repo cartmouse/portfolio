@@ -1,6 +1,7 @@
 import "./Band.scss";
 
 import { MutableRefObject, ReactNode } from "react";
+import { alterColor } from "./Utils";
 
 interface BandProps {
   color: string;
@@ -45,16 +46,6 @@ export const Band = ({
       src={image}
     />
   );
-
-  const alterColor = (color: string, amount: number) => {
-    const replaced = color.replace("#", "");
-    const split = replaced.split(/(..)/g).filter((s) => s);
-    split.forEach(
-      (item, index) =>
-        (split[index] = Math.round(parseInt(item, 16) * amount).toString(16))
-    );
-    return `#${split.join("")}`;
-  };
 
   return (
     <div
