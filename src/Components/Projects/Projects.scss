@@ -1,0 +1,21 @@
+@use "../../vars.module.scss";
+
+.projects {
+  &__titles {
+    position: sticky;
+    top: vars.$nav-size;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    height: vars.$nav-size * 2;
+    background: vars.$background-gradient-alt;
+    border-top: 1px solid vars.$light-blue;
+    border-bottom: 1px solid vars.$light-blue;
+
+    &__title {
+      @include vars.link;
+    }
+  }
+}

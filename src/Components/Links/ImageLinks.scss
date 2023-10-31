@@ -1,0 +1,17 @@
+.image-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+
+  &__link {
+    transition: 0.2s ease-out filter;
+    > img {
+      height: 30px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(70%);
+    }
+  }
+}

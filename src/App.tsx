@@ -1,73 +1,96 @@
-import { About } from "./pages/About/About";
+import { useState, useEffect, useRef } from "react";
 import "./App.scss";
+import colors from "./vars.module.scss";
 
-import { Link, Route, Routes, useLocation } from "react-router-dom";
-import { Projects } from "./pages";
-import { CV, Email, GitHub, LinkedIn } from "./assets";
+import { Profile } from "./assets";
+import CV from "/Tom_Cartwright_CV.pdf";
+import { Band } from "./Band";
+import { About, Projects } from "./Components";
+import { ImageLinks } from "./Components/Links/ImageLinks";
 
 export const App = () => {
-  const location = useLocation();
+  const [url, setUrl] = useState("");
+  const bandRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    window.addEventListener("hashchange", (event) => {
+      setUrl(event.newURL);
+    });
+    window.addEventListener("scroll", () => {
+      bandRefs.current.forEach((ref) => {
+        if (!ref) return;
+        const rect = ref.getBoundingClientRect();
+        const top = rect.top;
+        if (top >= 0 && top < 50) {
+          setUrl(window.location.origin + `/#${ref.id}`);
+        }
+      });
+    });
+  }, []);
 
   return (
     <div className="background">
-      <div className="container">
+      <div className="container" id="" ref={(r) => bandRefs.current.push(r)}>
         <div className="title">
           <div className="title__title">TOM CARTWRIGHT</div>
-          <div className="title__subtitle">SOFTWARE ENGINEER</div>
+          <div className="title__subtitle">CARTMOUSE | SOFTWARE ENGINEER</div>
         </div>
         <div className="nav">
-          <Link
-            className={`nav__link ${
-              location.pathname === "/" && "nav__link--selected"
-            }`}
-            to="/"
-          >
-            ABOUT
-          </Link>
-          <Link
-            className={`nav__link ${
-              location.pathname === "/projects" && "nav__link--selected"
-            }`}
-            to="/projects"
-          >
-            PROJECTS
-          </Link>
-          <a className="nav__link" href={CV} download>
+          <NavLink text="HOME" url={url} anchor="#" />
+          <NavLink text="ABOUT" url={url} anchor="#about" />
+          <NavLink text="PROJECTS" url={url} anchor="#projects" />
+          <a className="nav__link" href={CV} target="_blank">
             CV
           </a>
         </div>
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-          </Routes>
-        </div>
+        <Band
+          color={colors["uclaBlue"]}
+          index={0}
+          id="about"
+          bandRefs={bandRefs}
+          image={Profile}
+          circle
+        >
+          <About />
+        </Band>
+        <Projects url={url} bandRefs={bandRefs} />
         <div className="footer">
-          <div className="footer__items">
+          <ImageLinks />
+          <div className="footer__attr">
+            Favicon by{" "}
             <a
-              className="footer__items__item"
-              href="https://github.com/cartmouse"
+              href="https://dribbble.com/limastd?ref=svgrepo.com"
               target="_blank"
             >
-              <img src={GitHub}></img>
-            </a>
-            <a
-              className="footer__items__item"
-              href="https://linkedin.com/in/tom-cartwright97"
-              target="_blank"
-            >
-              <img src={LinkedIn}></img>
-            </a>
-            <a
-              className="footer__items__item"
-              href="mailto:tom-cartwright@outlook.com"
-              target="_blank"
-            >
-              <img src={Email}></img>
+              Lima Studio
+            </a>{" "}
+            in CC Attribution License via{" "}
+            <a href="https://www.svgrepo.com/" target="_blank">
+              SVG Repo
             </a>
           </div>
         </div>
       </div>
     </div>
+  );
+};
+
+interface NavLinkProps {
+  text: string;
+  url: string;
+  anchor: string;
+}
+
+const NavLink = ({ text, url, anchor }: NavLinkProps) => {
+  const hash = `#${url.split("#").at(-1)}`;
+  const selected =
+    hash.startsWith(anchor) && hash.split("/")[0].endsWith(anchor);
+  return (
+    <a
+      className={`nav__link ${selected && "nav__link--selected"}`}
+      href={anchor}
+    >
+      {text.toUpperCase()}
+    </a>
   );
 };
