@@ -33,7 +33,7 @@ export const App = () => {
       <div className="container" id="" ref={(r) => bandRefs.current.push(r)}>
         <div className="title">
           <div className="title__title">TOM CARTWRIGHT</div>
-          <div className="title__subtitle">SOFTWARE ENGINEER</div>
+          <div className="title__subtitle">CARTMOUSE | SOFTWARE ENGINEER</div>
         </div>
         <div className="nav">
           <NavLink text="HOME" url={url} anchor="#" />

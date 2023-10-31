@@ -11,11 +11,11 @@ export const About = () => {
           been working on TouchFree and TouchFree Web Tooling.
         </p>
         <p>
-          Most of my experience lies in the world of web tech, having become
-          intimately familiar with TypeScript, ReactJS and NodeJS. But I'm
-          always looking for ways to expand my knowledge and skills, more
-          recently getting clued up on desktop application development using
-          .NET with Avalonia and learning Unity.
+          Most of my experience lies in web tech, having become intimately
+          familiar with TypeScript, ReactJS and NodeJS. But I'm always looking
+          for ways to expand my knowledge and skills, more recently getting
+          clued up on desktop app development using .NET with Avalonia and
+          learning game development with Unity and Godot.
         </p>
         <ImageLinks />
       </div>

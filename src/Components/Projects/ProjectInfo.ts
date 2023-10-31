@@ -33,7 +33,7 @@ export const projectInfo: Project[] = [
   {
     id: "touchfree",
     title: "TOUCHFREE",
-    text: "An engine for mid-air interaction and tooling library for web application development.",
+    text: "An interaction engine and tooling libraries to enable touchless gesture control for kiosks and digital signage.",
     video:
       "https://www.youtube-nocookie.com/embed/JEjXetjbMU8?si=1BfAXW3fxntYkewU",
     links: [
