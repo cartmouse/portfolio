@@ -2,6 +2,7 @@ import "./Band.scss";
 
 import { MutableRefObject, ReactNode } from "react";
 import { alterColor } from "./Utils";
+import { Video } from "./Components/Projects/ProjectInfo";
 
 interface BandProps {
   color: string;
@@ -12,7 +13,7 @@ interface BandProps {
   children?: ReactNode;
   image?: string;
   circle?: boolean;
-  video?: string;
+  video?: Video;
 }
 
 export const Band = ({
@@ -29,11 +30,20 @@ export const Band = ({
   const textLeft = index % 2 === 0;
 
   const imVid = video ? (
-    <iframe
-      className={`band__content__video ${textLeft && "band__content__video"}`}
-      src={video}
-      allowFullScreen
-    />
+    video.type === "url" ? (
+      <iframe
+        className="band__content__video band__content__video--url"
+        src={video.string}
+        allowFullScreen
+      />
+    ) : (
+      <video
+        className="band__content__video band__content__video--file"
+        controls
+      >
+        <source src={video.string} />
+      </video>
+    )
   ) : (
     <img
       className={`band__content__image ${

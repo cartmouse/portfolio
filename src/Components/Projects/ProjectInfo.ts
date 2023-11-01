@@ -1,4 +1,12 @@
-import { EviesButtons, GitHub, Widgets } from "../../assets";
+import {
+  Ballpit,
+  EviesButtons,
+  GitHub,
+  Madronzio,
+  Storefront,
+  Widgets,
+  shOOH,
+} from "../../assets";
 
 interface Link {
   url: string;
@@ -11,12 +19,17 @@ interface Tag {
   color: string;
 }
 
+export interface Video {
+  type: "url" | "file";
+  string: string;
+}
+
 export interface Project {
   id: string;
   title: string;
   text: string;
   image?: string;
-  video?: string;
+  video?: Video;
   links?: Link[];
   tags?: Tag[];
 }
@@ -24,8 +37,9 @@ export interface Project {
 const reactTag: Tag = { text: "ReactJS", color: "#149eca" };
 const tsTag: Tag = { text: "TypeScript", color: "#2b7cd0" };
 const dotnetTag: Tag = { text: ".NET", color: "#4c25d2" };
-const tauriTag: Tag = { text: "Tauri", color: "#ffc131" };
-const cppTag: Tag = { text: "C++", color: "#6d9cd5" };
+const tauriTag: Tag = { text: "Tauri", color: "#999922" };
+// const cppTag: Tag = { text: "C++", color: "#6d9cd5" };
+const threeJsTag: Tag = { text: "three.js", color: "#009ef4" };
 
 export const projectInfo: Project[] = [
   {
@@ -47,8 +61,11 @@ export const projectInfo: Project[] = [
     id: "touchfree",
     title: "TOUCHFREE",
     text: "An interaction engine and tooling libraries to enable touchless gesture control for kiosks and digital signage.",
-    video:
-      "https://www.youtube-nocookie.com/embed/JEjXetjbMU8?si=1BfAXW3fxntYkewU",
+    video: {
+      type: "url",
+      string:
+        "https://www.youtube-nocookie.com/embed/JEjXetjbMU8?si=1BfAXW3fxntYkewU",
+    },
     links: [
       {
         url: "https://www.ultraleap.com/enterprise/touchless-experiences/touchfree-solution/",
@@ -83,38 +100,42 @@ export const projectInfo: Project[] = [
   {
     id: "madronzio",
     title: "MADRONZIO",
-    text: "A retail and brand exploration demo, created as a demo for TouchFree.",
+    text: "A retail and brand exploration demo, created as a demo for TouchFree. The high quality render animations were achieved by exporting frames of a video to PNGs, then rendering them in sequence to a canvas. This allowed for fine control over what frame was displayed at a given moment, giving a more engaging user experience.",
     tags: [tsTag, reactTag, tauriTag],
+    video: { type: "file", string: Madronzio },
   },
   {
     id: "ballpit",
     title: "BALLPIT",
     text: "3D interactable ballpit, created as a demo for TouchFree.",
-    tags: [tsTag, reactTag, tauriTag],
+    tags: [tsTag, reactTag, tauriTag, threeJsTag],
+    video: { type: "file", string: Ballpit },
   },
   {
     id: "storefront",
     title: "STOREFRONT",
-    text: "A quick service retail application, created as a demo for TouchFree.",
+    text: "A quick service retail application, created as a demo for TouchFree. Demonstrated how the use of touchless control in a kiosk environment",
     tags: [tsTag, reactTag, tauriTag],
+    video: { type: "file", string: Storefront },
   },
   {
     id: "shooh",
     title: "SHOOH",
     text: "A product customisation application, created as a demo for TouchFree.",
-    tags: [tsTag, reactTag, tauriTag],
+    tags: [tsTag, reactTag, tauriTag, threeJsTag],
+    video: { type: "file", string: shOOH },
   },
-  {
-    id: "tapa-tapa-tapa",
-    title: "TAPA-TAPA-TAPA",
-    text: "A multi-tap delay DAW plugin. Originally made as coursework for my degree.",
-    links: [
-      {
-        url: "https://github.com/cartmouse/Tapa-Tapa-Tapa",
-        text: "GITHUB",
-        image: GitHub,
-      },
-    ],
-    tags: [cppTag],
-  },
+  // {
+  //   id: "tapa-tapa-tapa",
+  //   title: "TAPA-TAPA-TAPA",
+  //   text: "A multi-tap delay DAW plugin. Originally made as coursework for my degree.",
+  //   links: [
+  //     {
+  //       url: "https://github.com/cartmouse/Tapa-Tapa-Tapa",
+  //       text: "GITHUB",
+  //       image: GitHub,
+  //     },
+  //   ],
+  //   tags: [cppTag, { text: "JUCE", color: "#f38d48" }],
+  // },
 ];

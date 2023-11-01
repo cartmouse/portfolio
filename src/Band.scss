@@ -94,9 +94,16 @@ $shadow: 0px 2px 10px black;
       justify-self: flex-end;
       align-self: center;
       border-radius: 15px;
-      height: $vid-height;
-      width: $vid-width;
       box-shadow: $shadow;
+
+      &--url {
+        height: $vid-height;
+        width: $vid-width;
+      }
+
+      &--file {
+        height: $vid-height;
+      }
     }
   }
 }
