@@ -1,4 +1,6 @@
 name: Deploy Site
+permissions:
+    id-token: write
 on:
   push:
     branches:
