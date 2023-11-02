@@ -32,7 +32,7 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
       </div>
       <div className="projects__display">
         {projectInfo.map(
-          ({ title, text, image, id, links, video, tags }, i) => {
+          ({ title, subtitle, text, image, id, links, video, tags }, i) => {
             return (
               <Band
                 color={i % 2 ? colors["uclaBlue"] : colors["cerulean"]}
@@ -44,7 +44,13 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
                 video={video}
                 bandRefs={bandRefs}
               >
-                <div className="band__content__text__title">{title}</div>
+                <div className="band__content__text__title">
+                  {title} |{" "}
+                  <span className="band__content__text__subtitle">
+                    {subtitle}
+                  </span>
+                </div>
+
                 <div className="band__content__text__tags">
                   {tags?.map(({ text, color }, j) => (
                     <div
