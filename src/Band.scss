@@ -1,23 +1,47 @@
 @use "./vars.module.scss";
 
-$vid-mult: 0.3;
-$vid-height: 1080px * $vid-mult;
-$vid-width: 1920px * $vid-mult;
-$shadow: 0px 2px 10px black;
+$vid-mult: 1.77;
+$vid-width-large: 90vw;
+$vid-height-large: calc($vid-width-large / $vid-mult);
+$vid-width-small: 42vw;
+$vid-height-small: calc($vid-width-small / $vid-mult);
+$max-height: 25rem;
+
+@mixin media-size {
+  @media (max-width: vars.$trigger-size) {
+    max-width: $vid-width-large;
+    max-height: unset;
+  }
+  max-width: $vid-width-small;
+  max-height: $max-height;
+}
 
 .band {
   width: 100vw;
-  height: calc($vid-height + 4rem);
+  padding: 1.5rem 0;
+
   margin: vars.$band-margin 0;
-  box-shadow: $shadow;
+  box-shadow: vars.$shadow;
   display: flex;
   justify-content: center;
 
   &__content {
     display: grid;
+    @media (max-width: vars.$trigger-size) {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      padding: 2rem 0;
+    }
     grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: flex-end;
     height: 100%;
     max-width: 1500px;
+
+    &--text {
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
 
     &__text {
       margin: 2.5vh;
@@ -28,6 +52,7 @@ $shadow: 0px 2px 10px black;
 
       &__tags {
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
 
         &__tag {
@@ -47,6 +72,7 @@ $shadow: 0px 2px 10px black;
 
       &__links {
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
 
         &__link {
@@ -81,12 +107,9 @@ $shadow: 0px 2px 10px black;
     }
 
     &__image {
-      max-height: $vid-height;
-      max-width: 50vw;
-      justify-self: flex-end;
-      align-self: center;
+      @include media-size;
       border-radius: 15px;
-      box-shadow: $shadow;
+      box-shadow: vars.$shadow;
 
       &--circle {
         border-radius: 50%;
@@ -95,18 +118,22 @@ $shadow: 0px 2px 10px black;
 
     &__video {
       border: none;
-      justify-self: flex-end;
-      align-self: center;
       border-radius: 15px;
-      box-shadow: $shadow;
+      box-shadow: vars.$shadow;
 
       &--url {
-        height: $vid-height;
-        width: $vid-width;
+        @media (max-width: vars.$trigger-size) {
+          height: $vid-height-large;
+          width: $vid-width-large;
+        }
+        height: $vid-height-small;
+        width: $vid-width-small;
+        max-height: $max-height;
+        max-width: $max-height * 1.77;
       }
 
       &--file {
-        height: $vid-height;
+        @include media-size;
       }
     }
   }

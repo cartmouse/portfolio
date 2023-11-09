@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import "./App.scss";
 import colors from "./vars.module.scss";
 
-import { Profile } from "./assets";
 import CV from "/Tom_Cartwright_CV.pdf";
 import { Band } from "./Band";
 import { About, Projects, ImageLinks } from "./Components";
@@ -42,14 +41,7 @@ export const App = () => {
             CV
           </a>
         </div>
-        <Band
-          color={colors["uclaBlue"]}
-          index={0}
-          id="about"
-          bandRefs={bandRefs}
-          image={Profile}
-          circle
-        >
+        <Band color={colors["uclaBlue"]} id="about" bandRefs={bandRefs} circle>
           <About />
         </Band>
         <Projects url={url} bandRefs={bandRefs} />

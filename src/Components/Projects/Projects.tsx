@@ -36,7 +36,6 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
             return (
               <Band
                 color={i % 2 ? colors["uclaBlue"] : colors["cerulean"]}
-                index={i}
                 key={i}
                 id={`projects/${id}`}
                 double

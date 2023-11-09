@@ -6,7 +6,6 @@ import { Video } from "./Components/Projects/ProjectInfo";
 
 interface BandProps {
   color: string;
-  index: number;
   bandRefs: MutableRefObject<(HTMLDivElement | null)[]>;
   id?: string;
   double?: boolean;
@@ -22,38 +21,41 @@ export const Band = ({
   bandRefs,
   id,
   children,
-  index,
   double,
   video,
   circle,
 }: BandProps) => {
-  const textLeft = index % 2 === 0;
+  const imageVideo = () => {
+    if (video) {
+      return video.type === "url" ? (
+        <iframe
+          className="band__content__video band__content__video--url"
+          src={video.string}
+          allowFullScreen
+        />
+      ) : (
+        <video
+          className="band__content__video band__content__video--file"
+          controls
+        >
+          <source src={video.string} />
+        </video>
+      );
+    }
 
-  const imVid = video ? (
-    video.type === "url" ? (
-      <iframe
-        className="band__content__video band__content__video--url"
-        src={video.string}
-        allowFullScreen
-      />
-    ) : (
-      <video
-        className="band__content__video band__content__video--file"
-        controls
-      >
-        <source src={video.string} />
-      </video>
-    )
-  ) : (
-    <img
-      className={`band__content__image ${
-        circle && "band__content__image--circle"
-      }
-        ${textLeft && "band__content__image"}
-      }`}
-      src={image}
-    />
-  );
+    if (image) {
+      return (
+        <img
+          className={`band__content__image ${
+            circle && "band__content__image--circle"
+          }`}
+          src={image}
+        />
+      );
+    }
+
+    return <></>;
+  };
 
   return (
     <div
@@ -70,18 +72,27 @@ export const Band = ({
         id={id}
         ref={(r) => bandRefs?.current.push(r)}
       />
-      <div className="band__content">
+      <div
+        className={`band__content ${
+          !image && !video ? "band__content--text" : ""
+        }`}
+      >
         <>
-          {imVid}
-          <div
-            className={`band__content__text ${
-              textLeft && "band__content__text"
-            }`}
-          >
-            {children}
-          </div>
+          {imageVideo()}
+          <div className="band__content__text">{children}</div>
         </>
       </div>
     </div>
   );
 };
+
+// const Image = ({ src, circle }: { src: string; circle?: boolean }) => {
+//   return (
+//     <img
+//       className={`band__content__image ${
+//         circle && "band__content__image--circle"
+//       }`}
+//       src={src}
+//     />
+//   );
+// };
