@@ -11,7 +11,7 @@ $border-color: 1px solid vars.$light-blue;
     justify-content: space-evenly;
     flex-wrap: wrap;
     align-items: center;
-    height: vars.$nav-size * 2;
+    min-height: vars.$nav-size * 2;
     background: vars.$background-gradient-alt;
     border-top: $border-color;
     border-bottom: $border-color;

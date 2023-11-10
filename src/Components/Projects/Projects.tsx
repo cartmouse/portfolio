@@ -32,16 +32,20 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
       </div>
       <div className="projects__display">
         {projectInfo.map(
-          ({ title, subtitle, text, image, id, links, video, tags }, i) => {
+          (
+            { title, subtitle, text, image, id, links, video, tags, alt },
+            i
+          ) => {
             return (
               <Band
-                color={i % 2 ? colors["uclaBlue"] : colors["cerulean"]}
+                color={i % 2 ? colors["indigoDye"] : colors["indigoDye2"]}
                 key={i}
                 id={`projects/${id}`}
                 double
                 image={image}
                 video={video}
                 bandRefs={bandRefs}
+                alt={alt ?? ""}
               >
                 <div className="band__content__text__title">
                   {title} |{" "}
@@ -68,7 +72,7 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
                 </div>
                 <div className="band__content__text__text">{text}</div>
                 <div className="band__content__text__links">
-                  {links?.map(({ url, text, image }, j) => (
+                  {links?.map(({ url, text, image, alt }, j) => (
                     <a
                       className="band__content__text__links__link"
                       href={url}
@@ -79,6 +83,7 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
                         <img
                           src={image}
                           className="band__content__text__links__link__image"
+                          alt={alt}
                         />
                       )}
                       <div className="band__content__text__links__link__text">

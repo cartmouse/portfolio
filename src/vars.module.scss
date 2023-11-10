@@ -12,13 +12,13 @@ $yellow: #ffff4d;
 
 $background-gradient: linear-gradient(
   to right,
-  $indigo-dye-2,
-  darken($indigo-dye-2, 3%)
+  $cerulean,
+  darken($cerulean, 3%)
 );
 $background-gradient-alt: linear-gradient(
   to right,
-  $cerulean,
-  darken($cerulean, 3%)
+  $indigo-dye-2,
+  darken($indigo-dye-2, 3%)
 );
 
 $nav-size: 2.2rem;

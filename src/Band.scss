@@ -59,6 +59,7 @@ $max-height: 25rem;
           font-size: 0.9rem;
           padding: 0.2rem 0.5rem;
           border-radius: 5px;
+          color: black;
         }
       }
 
@@ -78,14 +79,14 @@ $max-height: 25rem;
         &__link {
           &:hover {
             cursor: pointer;
-            background-color: vars.$indigo-dye-3;
+            background-color: vars.$light-blue;
           }
 
+          color: black;
           font-size: 0.8rem;
           transition: 0.2s linear background;
           padding: 0.6rem 0.9rem;
-          background-color: vars.$indigo-dye;
-          color: inherit;
+          background-color: vars.$air-superiority-blue;
           text-decoration: none;
           border-radius: 10px;
           box-shadow: 0px 2px 3px black;
@@ -97,6 +98,7 @@ $max-height: 25rem;
             height: 2rem;
             margin: -1rem 0;
             margin-left: -0.5rem;
+            filter: invert(1);
           }
         }
       }
