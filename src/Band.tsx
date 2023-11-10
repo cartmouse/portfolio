@@ -7,6 +7,7 @@ import { Video } from "./Components/Projects/ProjectInfo";
 interface BandProps {
   color: string;
   bandRefs: MutableRefObject<(HTMLDivElement | null)[]>;
+  alt?: string;
   id?: string;
   double?: boolean;
   children?: ReactNode;
@@ -19,6 +20,7 @@ export const Band = ({
   color,
   image,
   bandRefs,
+  alt,
   id,
   children,
   double,
@@ -27,18 +29,24 @@ export const Band = ({
 }: BandProps) => {
   const imageVideo = () => {
     if (video) {
-      return video.type === "url" ? (
-        <iframe
-          className="band__content__video band__content__video--url"
-          src={video.string}
-          allowFullScreen
-        />
-      ) : (
+      if (video.type === "url") {
+        return (
+          <iframe
+            className="band__content__video band__content__video--url"
+            src={video.string}
+            allowFullScreen
+            title={alt}
+          />
+        );
+      }
+
+      return (
         <video
           className="band__content__video band__content__video--file"
           controls
+          title={alt}
         >
-          <source src={video.string} />
+          <source src={video.string} title={alt} />
         </video>
       );
     }
@@ -50,6 +58,7 @@ export const Band = ({
             circle && "band__content__image--circle"
           }`}
           src={image}
+          alt={alt}
         />
       );
     }

@@ -41,7 +41,12 @@ export const App = () => {
             CV
           </a>
         </div>
-        <Band color={colors["uclaBlue"]} id="about" bandRefs={bandRefs} circle>
+        <Band
+          color={colors["indigoDye2"]}
+          id="about"
+          bandRefs={bandRefs}
+          circle
+        >
           <About />
         </Band>
         <Projects url={url} bandRefs={bandRefs} />

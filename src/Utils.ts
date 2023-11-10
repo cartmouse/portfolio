@@ -6,8 +6,8 @@ export const alterColor = (color: string, amount: number) => {
       255,
       Math.round(parseInt(item, 16) * amount)
     ).toString(16);
-    if (string.length === 1 && string === "0") {
-      split[index] = string + "0";
+    if (string.length === 1) {
+      split[index] = "0" + string;
     } else {
       split[index] = string;
     }
