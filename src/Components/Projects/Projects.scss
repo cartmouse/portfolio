@@ -15,6 +15,7 @@ $border-color: 1px solid vars.$light-blue;
     background: vars.$background-gradient-alt;
     border-top: $border-color;
     border-bottom: $border-color;
+    z-index: 2;
 
     &__title {
       @include vars.link;

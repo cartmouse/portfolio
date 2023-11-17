@@ -7,6 +7,7 @@ import Madronzio from "./madronzio.webm";
 import Ballpit from "./ballpit.webm";
 import Storefront from "./storefront.webm";
 import shOOH from "./shooh.webm";
+import Tapa from "./tapa-tapa-tapa.webm";
 
 export {
   GitHub,
@@ -18,4 +19,5 @@ export {
   Ballpit,
   Storefront,
   shOOH,
+  Tapa,
 };

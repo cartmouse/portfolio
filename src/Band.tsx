@@ -55,7 +55,7 @@ export const Band = ({
       return (
         <img
           className={`band__content__image ${
-            circle && "band__content__image--circle"
+            circle ? "band__content__image--circle" : ""
           }`}
           src={image}
           alt={alt}

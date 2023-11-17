@@ -4,6 +4,7 @@ import {
   GitHub,
   Madronzio,
   Storefront,
+  Tapa,
   Widgets,
   shOOH,
 } from "../../assets";
@@ -41,7 +42,7 @@ const reactTag: Tag = { text: "ReactJS", color: "#24aeda" };
 const tsTag: Tag = { text: "TypeScript", color: "#4b9cf0" };
 const dotnetTag: Tag = { text: ".NET", color: "#8c65f2" };
 const tauriTag: Tag = { text: "Tauri", color: "#a9a932" };
-// const cppTag: Tag = { text: "C++", color: "#6d9cd5" };
+const cppTag: Tag = { text: "C++", color: "#6d9cd5" };
 const threeJsTag: Tag = { text: "three.js", color: "#10aef4" };
 const electronTag: Tag = { text: "Electron", color: "#48b7d9" };
 
@@ -145,17 +146,20 @@ export const projectInfo: Project[] = [
     tags: [tsTag, { text: "Preact", color: "#875ad8" }],
     alt: "The main interface for Evie's Talking Buttons. Shows a grid of 6 different coloured buttons labelled: 'hello', 'feeling non-verbal', 'hungry', 'happy', 'tea, please' and 'milk no sugar'. Above is the title of the page and below is a button labelled 'settings'.",
   },
-  // {
-  //   id: "tapa-tapa-tapa",
-  //   title: "TAPA-TAPA-TAPA",
-  //   text: "A multi-tap delay DAW plugin. Originally made as coursework for my degree.",
-  //   links: [
-  //     {
-  //       url: "https://github.com/cartmouse/Tapa-Tapa-Tapa",
-  //       text: "GITHUB",
-  //       image: GitHub,
-  //     },
-  //   ],
-  //   tags: [cppTag, { text: "JUCE", color: "#f38d48" }],
-  // },
+  {
+    id: "tapa-tapa-tapa",
+    title: "TAPA-TAPA-TAPA",
+    subtitle: "Uni",
+    text: "A multi-tap delay DAW plugin. Compiles to VST3 and AU. Originally made as coursework for my degree.",
+    video: { type: "file", string: Tapa },
+    alt: "Test",
+    links: [
+      {
+        url: "https://github.com/cartmouse/Tapa-Tapa-Tapa",
+        text: "GITHUB",
+        image: GitHub,
+      },
+    ],
+    tags: [cppTag, { text: "JUCE", color: "#f38d48" }],
+  },
 ];
