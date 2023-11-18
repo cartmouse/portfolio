@@ -152,7 +152,7 @@ export const projectInfo: Project[] = [
     subtitle: "Uni",
     text: "A multi-tap delay DAW plugin. Compiles to VST3 and AU. Originally made as coursework for my degree.",
     video: { type: "file", string: Tapa },
-    alt: "Test",
+    alt: "The interface of the Tapa-Tapa-Tapa delay plugin. Shows the following controls being utilised: Dry/Wet, Tap Mix, Feedback %, Time and Tap %.",
     links: [
       {
         url: "https://github.com/cartmouse/Tapa-Tapa-Tapa",
