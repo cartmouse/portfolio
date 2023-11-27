@@ -17,13 +17,13 @@ $max-height: 25rem;
 }
 
 .band {
-  width: 100vw;
+  border-radius: 15px;
+  width: 92vw;
   padding: 1.5rem 0;
 
   margin: vars.$band-margin 0;
   box-shadow: vars.$shadow;
   display: flex;
-  justify-content: center;
 
   &__content {
     display: grid;
