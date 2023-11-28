@@ -21,9 +21,12 @@ $background-gradient-alt: linear-gradient(
   darken($indigo-dye-2, 3%)
 );
 
+$nav-color: #01497ca0;
 $nav-size: 2.2rem;
+$nav-padding: 0.2rem;
+$padded-nav-size: $nav-size + $nav-padding * 2;
 
-$band-margin: 2rem;
+$band-margin: 1.5rem;
 
 $shadow: 0px 5px 8px darken($cerulean, 25);
 $trigger-size: 650px;
@@ -33,8 +36,6 @@ $trigger-size: 650px;
   text-decoration: none;
   transition: 0.3s ease-out color;
   cursor: pointer;
-
-  padding: 0 0.5rem;
 
   &:hover,
   &--selected {

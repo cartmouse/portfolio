@@ -10,7 +10,7 @@ $max-height: 25rem;
 @mixin media-size {
   @media (max-width: vars.$trigger-size) {
     max-width: $vid-width-large;
-    max-height: unset;
+    max-height: $vid-height-large;
   }
   max-width: $vid-width-small;
   max-height: $max-height;
@@ -30,7 +30,6 @@ $max-height: 25rem;
     @media (max-width: vars.$trigger-size) {
       grid-template-columns: 1fr;
       justify-items: center;
-      padding: 2rem 0;
     }
     grid-template-columns: 1fr 1fr;
     align-items: center;
