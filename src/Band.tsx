@@ -94,14 +94,3 @@ export const Band = ({
     </div>
   );
 };
-
-// const Image = ({ src, circle }: { src: string; circle?: boolean }) => {
-//   return (
-//     <img
-//       className={`band__content__image ${
-//         circle && "band__content__image--circle"
-//       }`}
-//       src={src}
-//     />
-//   );
-// };

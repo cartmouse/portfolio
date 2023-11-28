@@ -15,13 +15,13 @@ body {
   position: relative;
   visibility: hidden;
   &--no-gap {
-    top: -1 * vars.$nav-size;
+    top: -1 * vars.$padded-nav-size;
   }
   &--single {
-    top: -1 * vars.$nav-size - vars.$band-margin * 0.5;
+    top: -1.5 * vars.$padded-nav-size - vars.$band-margin * 0.5;
   }
   &--double {
-    top: -3 * vars.$nav-size - vars.$band-margin * 0.5;
+    top: -3 * vars.$padded-nav-size - vars.$band-margin * 0.5;
   }
 }
 
@@ -33,6 +33,9 @@ body {
 
 .container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
@@ -41,10 +44,12 @@ body {
   justify-content: center;
   align-items: center;
   padding: 1.5rem 0;
-  background: vars.$background-gradient-alt;
 
   &__title {
-    font-size: 2rem;
+    @media (max-width: vars.$trigger-size) {
+      font-size: 2rem;
+    }
+    font-size: 3rem;
   }
 
   &__subtitle {
@@ -56,15 +61,17 @@ body {
   width: 100%;
   position: sticky;
   top: 0;
-  background: vars.$background-gradient-alt;
+  background-color: vars.$nav-color;
   display: grid;
   grid-template-columns: auto auto auto auto;
   justify-items: center;
   align-items: center;
-  border-bottom: 1px solid vars.$light-blue;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   z-index: 2;
 
-  height: vars.$nav-size;
+  padding: vars.$nav-padding 0;
+  min-height: vars.$nav-size;
 
   &__link {
     @include vars.link;
