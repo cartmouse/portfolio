@@ -7,15 +7,15 @@ export const About = () => {
       <div className="about__body">
         <p>Hi, I'm Tom!</p>
         <p>
-          I'm currently a Software Engineer at Ultraleap where I've primarily
-          been working on TouchFree and TouchFree Web Tooling.
+          I'm currently a Developer at IVC Evidensia where I primarily work
+          on the front end for a number of websites across the group.
         </p>
         <p>
           Most of my experience lies in web tech, having become intimately
           familiar with TypeScript, ReactJS and NodeJS. But I'm always looking
-          for ways to expand my knowledge and skills, more recently getting
+          for ways to expand my knowledge and skills, recently getting
           clued up on desktop app development using .NET with Avalonia and
-          learning game development with Unity and Godot.
+          learning game development with Godot and Bevy.
         </p>
         <ImageLinks />
       </div>
