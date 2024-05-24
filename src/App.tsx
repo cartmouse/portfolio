@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import "./App.scss";
 import colors from "./vars.module.scss";
 
-import CV from "/Tom_Cartwright_CV.pdf";
 import { Band } from "./Band";
 import { About, Projects, ImageLinks } from "./Components";
 
@@ -37,9 +36,6 @@ export const App = () => {
           <NavLink text="HOME" url={url} anchor="#" />
           <NavLink text="ABOUT" url={url} anchor="#about" />
           <NavLink text="PROJECTS" url={url} anchor="#projects" />
-          <a className="nav__link" href={CV} target="_blank">
-            CV
-          </a>
         </div>
         <Band
           color={colors["indigoDye2"]}

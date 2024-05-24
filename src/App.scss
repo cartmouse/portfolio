@@ -63,7 +63,7 @@ body {
   top: 0;
   background-color: vars.$nav-color;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
   justify-items: center;
   align-items: center;
   backdrop-filter: blur(5px);
