@@ -29,5 +29,10 @@ $border-color: 1px solid vars.$light-blue;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &__title {
+      margin-bottom: vars.$band-margin;
+      margin-top: vars.$title-margin;
+    }
   }
 }

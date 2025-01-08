@@ -6,7 +6,7 @@ import { Video } from "./Components/Projects/ProjectInfo";
 
 interface BandProps {
   color: string;
-  bandRefs: MutableRefObject<(HTMLDivElement | null)[]>;
+  bandRefs?: MutableRefObject<(HTMLDivElement | null)[]>;
   alt?: string;
   id?: string;
   double?: boolean;

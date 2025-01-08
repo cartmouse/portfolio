@@ -46,7 +46,65 @@ const cppTag: Tag = { text: "C++", color: "#6d9cd5" };
 const threeJsTag: Tag = { text: "three.js", color: "#10aef4" };
 const electronTag: Tag = { text: "Electron", color: "#48b7d9" };
 
-export const projectInfo: Project[] = [
+export const websiteProjects: Project[] = [
+  {
+    id: "buttons",
+    title: "EVIE'S TALKING BUTTONS",
+    subtitle: "PERSONAL",
+    text: "An aid for people who sometimes prefer to remain non-verbal. Customisable buttons that use the device's text-to-speech engine to say the words aloud.",
+    image: EviesButtons,
+    links: [
+      { url: "https://eviesbuttons.netlify.app", text: "VISIT SITE" },
+      {
+        url: "https://github.com/cartmouse/evies-talking-buttons",
+        text: "GITHUB",
+        image: GitHub,
+        alt: "Repository for Evie's Talking Buttons",
+      },
+    ],
+    tags: [tsTag, { text: "Preact", color: "#875ad8" }],
+    alt: "The main interface for Evie's Talking Buttons. Shows a grid of 6 different coloured buttons labelled: 'hello', 'feeling non-verbal', 'hungry', 'happy', 'tea, please' and 'milk no sugar'. Above is the title of the page and below is a button labelled 'settings'.",
+  },
+];
+
+export const desktopProjects: Project[] = [
+  {
+    id: "widgets",
+    title: "WIDGETS",
+    subtitle: "ULTRALEAP",
+    text: "A selection of apps (and launcher) for gestural control of Windows and MacOS. Featuring actions such as: play/pause/skip media, navigate through presentation slides, point with a virtual laser, and controlling the cursor to click and scroll.",
+    image: Widgets,
+    links: [
+      {
+        url: "https://leap2.ultraleap.com/ultraleap-widgets/",
+        text: "LEARN MORE",
+      },
+    ],
+    tags: [dotnetTag, { text: "Avalonia", color: "#ab64cc" }],
+    alt: "The launcher window for the Ultraleap Widgets application. A list of the available widgets on the left hand side and an introduction on the right with links to a getting started guide and support pages.",
+  },
+];
+
+export const audioProjects: Project[] = [
+  {
+    id: "tapa-tapa-tapa",
+    title: "TAPA-TAPA-TAPA",
+    subtitle: "Uni",
+    text: "A multi-tap delay DAW plugin. Compiles to VST3 and AU. Originally made as coursework for my degree.",
+    video: { type: "file", string: Tapa },
+    alt: "The interface of the Tapa-Tapa-Tapa delay plugin. Shows the following controls being utilised: Dry/Wet, Tap Mix, Feedback %, Time and Tap %.",
+    links: [
+      {
+        url: "https://github.com/cartmouse/Tapa-Tapa-Tapa",
+        text: "GITHUB",
+        image: GitHub,
+      },
+    ],
+    tags: [cppTag, { text: "JUCE", color: "#f38d48" }],
+  },
+];
+
+export const touchfreeProjects: Project[] = [
   {
     id: "touchfree",
     title: "TOUCHFREE",
@@ -113,53 +171,20 @@ export const projectInfo: Project[] = [
     video: { type: "file", string: shOOH },
     alt: 'A kiosk with a product customisation application being used. The user is prompted to "pull scanner down" which reveals a training shoe. The shoe is rotated by the user swiping their hand. The shoe is expanded when a slider is moved along a track, then customised by selecting a section of the shoe and selecting a colour.',
   },
-  {
-    id: "widgets",
-    title: "WIDGETS",
-    subtitle: "ULTRALEAP",
-    text: "A selection of apps (and launcher) for gestural control of Windows and MacOS. Featuring actions such as: play/pause/skip media, navigate through presentation slides, point with a virtual laser, and controlling the cursor to click and scroll.",
-    image: Widgets,
-    links: [
-      {
-        url: "https://leap2.ultraleap.com/ultraleap-widgets/",
-        text: "LEARN MORE",
-      },
-    ],
-    tags: [dotnetTag, { text: "Avalonia", color: "#ab64cc" }],
-    alt: "The launcher window for the Ultraleap Widgets application. A list of the available widgets on the left hand side and an introduction on the right with links to a getting started guide and support pages.",
-  },
-  {
-    id: "buttons",
-    title: "EVIE'S TALKING BUTTONS",
-    subtitle: "PERSONAL",
-    text: "An aid for people who sometimes prefer to remain non-verbal. Customisable buttons that use the device's text-to-speech engine to say the words aloud.",
-    image: EviesButtons,
-    links: [
-      { url: "https://eviesbuttons.netlify.app", text: "VISIT SITE" },
-      {
-        url: "https://github.com/cartmouse/evies-talking-buttons",
-        text: "GITHUB",
-        image: GitHub,
-        alt: "Repository for Evie's Talking Buttons",
-      },
-    ],
-    tags: [tsTag, { text: "Preact", color: "#875ad8" }],
-    alt: "The main interface for Evie's Talking Buttons. Shows a grid of 6 different coloured buttons labelled: 'hello', 'feeling non-verbal', 'hungry', 'happy', 'tea, please' and 'milk no sugar'. Above is the title of the page and below is a button labelled 'settings'.",
-  },
-  {
-    id: "tapa-tapa-tapa",
-    title: "TAPA-TAPA-TAPA",
-    subtitle: "Uni",
-    text: "A multi-tap delay DAW plugin. Compiles to VST3 and AU. Originally made as coursework for my degree.",
-    video: { type: "file", string: Tapa },
-    alt: "The interface of the Tapa-Tapa-Tapa delay plugin. Shows the following controls being utilised: Dry/Wet, Tap Mix, Feedback %, Time and Tap %.",
-    links: [
-      {
-        url: "https://github.com/cartmouse/Tapa-Tapa-Tapa",
-        text: "GITHUB",
-        image: GitHub,
-      },
-    ],
-    tags: [cppTag, { text: "JUCE", color: "#f38d48" }],
-  },
 ];
+
+export type ProjectType = "website" | "desktop" | "audio" | "touchfree";
+
+export const projectTypeTitles: { [key: string]: string } = {
+  touchfree: "TOUCHFREE",
+  website: "WEBSITES",
+  desktop: "DESKTOP APPS",
+  audio: "AUDIO",
+};
+
+export const infoMap: { [key: string]: Project[] } = {
+  touchfree: touchfreeProjects,
+  website: websiteProjects,
+  desktop: desktopProjects,
+  audio: audioProjects,
+};

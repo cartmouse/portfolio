@@ -7,15 +7,17 @@ export const About = () => {
       <div className="about__body">
         <p>Hi, I'm Tom!</p>
         <p>
-          I'm currently a Developer at IVC Evidensia where I primarily work
-          on the front end for a number of websites across the group.
+          I'm currently a Software Engineer at Loop Technology where I use a
+          range of technologies to create everything from human machine
+          interfaces to robot programs.
         </p>
         <p>
           Most of my experience lies in web tech, having become intimately
-          familiar with TypeScript, ReactJS and NodeJS. But I'm always looking
-          for ways to expand my knowledge and skills, recently getting
-          clued up on desktop app development using .NET with Avalonia and
-          learning game development with Godot and Bevy.
+          familiar with JavaScript, TypeScript, ReactJS, CSS/SASS, NodeJS and
+          C#/.NET. I'm always looking for ways to expand my knowledge and
+          skills, having explored desktop app development using Avalonia;
+          robotics and automation with Beckhoff's TwinCAT system; and game
+          development with Godot and Bevy.
         </p>
         <ImageLinks />
       </div>
