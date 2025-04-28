@@ -7,6 +7,7 @@ import {
   Tapa,
   Widgets,
   shOOH,
+  Careers,
 } from "../../assets";
 
 interface Link {
@@ -31,6 +32,7 @@ export interface Project {
   title: string;
   subtitle: string;
   text: string;
+  role?: string;
   alt?: string;
   image?: string;
   video?: Video;
@@ -47,6 +49,15 @@ const threeJsTag: Tag = { text: "three.js", color: "#10aef4" };
 const electronTag: Tag = { text: "Electron", color: "#48b7d9" };
 
 export const websiteProjects: Project[] = [
+  {
+    id: "ivc-careers",
+    title: "CAREERS SITE",
+    subtitle: "IVC EVIDENSIA",
+    text: "A refresh of the job search section of the IVC Evidensia careers site.",
+    image: Careers,
+    links: [{ url: "https://ivcevidensia.co.uk/careers", text: "VISIT SITE" }],
+    tags: [reactTag, tsTag],
+  },
   {
     id: "buttons",
     title: "EVIE'S TALKING BUTTONS",
@@ -170,6 +181,17 @@ export const touchfreeProjects: Project[] = [
     tags: [tsTag, reactTag, tauriTag, electronTag, threeJsTag],
     video: { type: "file", string: shOOH },
     alt: 'A kiosk with a product customisation application being used. The user is prompted to "pull scanner down" which reveals a training shoe. The shoe is rotated by the user swiping their hand. The shoe is expanded when a slider is moved along a track, then customised by selecting a section of the shoe and selecting a colour.',
+  },
+];
+
+export const graphicsProjects: Project[] = [
+  {
+    id: "grass",
+    title: "Grass Shell Texture Shader",
+    subtitle: "Personal",
+    text: "A grass-like shell texture shader based around an implemenation of a fur shader by Acerola, then adapted to appear like baldes of grass swaying in the wind.",
+    tags: [],
+    video: { type: "file", string: "" },
   },
 ];
 

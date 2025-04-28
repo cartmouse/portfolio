@@ -34,7 +34,7 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
       <div className="projects__display">
         {Object.keys(infoMap).map((type) => {
           return (
-            <>
+            <div key={type} className="projects__display__type">
               <div
                 className="anchor anchor--single"
                 id={`projects/${type}`}
@@ -45,7 +45,17 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
               </h2>
               {infoMap[type].map(
                 (
-                  { title, subtitle, text, image, links, video, tags, alt },
+                  {
+                    title,
+                    subtitle,
+                    text,
+                    role,
+                    image,
+                    links,
+                    video,
+                    tags,
+                    alt,
+                  },
                   i
                 ) => {
                   return (
@@ -64,6 +74,19 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
                         </span>
                       </div>
 
+                      <div className="band__content__text__text">{text}</div>
+
+                      {role ? (
+                        <div>
+                          <h4>Responsibilities</h4>
+                          <div className="band__content__text__text">
+                            {role}
+                          </div>
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+
                       <div className="band__content__text__tags">
                         {tags?.map(({ text, color }, j) => (
                           <div
@@ -80,7 +103,7 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
                           </div>
                         ))}
                       </div>
-                      <div className="band__content__text__text">{text}</div>
+
                       <div className="band__content__text__links">
                         {links?.map(({ url, text, image, alt }, j) => (
                           <a
@@ -106,7 +129,7 @@ export const Projects = ({ url, bandRefs }: ProjectsProps) => {
                   );
                 }
               )}
-            </>
+            </div>
           );
         })}
       </div>
