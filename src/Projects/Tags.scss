@@ -1,0 +1,14 @@
+@use "../vars.module.scss";
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$xs;
+
+  .tag {
+    font-size: vars.$fsm;
+    padding: vars.$xxs vars.$xs;
+    border-radius: vars.$xxs;
+    color: black;
+  }
+}

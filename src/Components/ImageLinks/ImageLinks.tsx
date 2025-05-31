@@ -1,5 +1,5 @@
-import { Email, GitHub, LinkedIn } from "../../assets";
 import "./ImageLinks.scss";
+import { Email, GitHub, LinkedIn } from "@Assets";
 
 interface ImageLinkProps {
   href: string;
@@ -9,7 +9,7 @@ interface ImageLinkProps {
 
 export const ImageLink = ({ href, image, altText }: ImageLinkProps) => {
   return (
-    <a className="image-links__link" href={href} target="_blank">
+    <a className="link" href={href} target="_blank">
       <img src={image} alt={altText}></img>
     </a>
   );

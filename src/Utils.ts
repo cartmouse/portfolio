@@ -1,3 +1,12 @@
+import { useRef } from "react";
+
+export const cdnBase =
+  "https://5721091d-c740-4a16-b036-07dae0b321a5.s3.eu-west-2.amazonaws.com";
+
+export const asset = (path: string) => `${cdnBase}/${path}`;
+
+export type BandRefs = { [key: string]: HTMLDivElement | null };
+
 export const alterColor = (color: string, amount: number) => {
   const replaced = color.replace("#", "");
   const split = replaced.split(/(..)/g).filter((s) => s);
@@ -13,4 +22,32 @@ export const alterColor = (color: string, amount: number) => {
     }
   });
   return `#${split.join("")}`;
+};
+
+export const useScrollTrigger = () => {
+  const refs = useRef<Element[]>([]);
+
+  const onScroll = () => {
+    const elems = refs.current;
+    if (elems.length == 0) return;
+
+    elems.forEach((elem) => {
+      const top = elem.getBoundingClientRect().top;
+
+      if (elem.classList.contains("enter") && top > window.innerHeight) {
+        elem.classList.remove("enter");
+      }
+
+      if (
+        !elem.classList.contains("enter") &&
+        top >= 0 &&
+        top <= window.innerHeight
+      ) {
+        elem.classList.add("enter");
+      }
+    });
+  };
+  window.addEventListener("scroll", onScroll);
+
+  return refs;
 };

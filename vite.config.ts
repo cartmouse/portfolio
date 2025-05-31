@@ -5,4 +5,12 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ["**/*.MOV"],
+  resolve: {
+    alias: {
+      "@Components": "./src/Components/index.ts",
+      "@Projects": "./src/Projects/index.ts",
+      "@Utils": "./src/Utils.ts",
+      "@Assets": "./src/assets/index.ts",
+    },
+  },
 });

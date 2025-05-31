@@ -1,0 +1,27 @@
+@use "../../vars.module.scss";
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1vh;
+  padding: vars.$lg 0;
+  width: 100%;
+
+  &.alt-background {
+    background: vars.$background-gradient-2;
+  }
+
+  .attr {
+    font-size: vars.$fxs;
+
+    & > a {
+      color: vars.$highlight;
+    }
+  }
+
+  .copyright {
+    font-size: vars.$fsm;
+  }
+}
