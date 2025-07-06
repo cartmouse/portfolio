@@ -58,7 +58,7 @@ export const practical: ProjectCategory = {
       id: "ivc-careers",
       title: "Careers Site",
       subtitle: "IVC Evidensia",
-      desc: "Refresh of the job search section of the IVC Evidensia careers site.",
+      desc: "Refresh of the job search section of the IVC Evidensia careers site",
       text: "",
       image: asset("careers.jpg"),
       links: [
@@ -91,6 +91,7 @@ export const practical: ProjectCategory = {
       desc: "Aid for people who sometimes prefer to remain non-verbal",
       text: "Customisable buttons that use the device's text-to-speech engine to say the words aloud.",
       image: asset("eviesbuttons.jpg"),
+      video: { type: "file", string: asset("eviesbuttons.mp4") },
       links: [
         { url: "https://eviesbuttons.netlify.app", text: "Visit Site" },
         {

@@ -4,6 +4,10 @@
   display: flex;
   gap: vars.$md;
 
+  @media (max-width: vars.$trigger-size) {
+    gap: vars.$sm;
+  }
+
   .link {
     display: flex;
     align-items: flex-end;

@@ -15,7 +15,7 @@ export const LearnMore = ({ info }: LearnMoreProps) => {
     <div className="learn-more-container">
       <nav className="navbar">
         <button className="nav-item" onClick={() => nav(-1)}>
-          Home
+          Back
         </button>
       </nav>
       <div className="content">
