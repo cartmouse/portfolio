@@ -1,6 +1,6 @@
 import "./ImageVideo.scss";
 
-import { MutableRefObject } from "react";
+import { MutableRefObject, PropsWithChildren } from "react";
 import { Video } from "@Projects";
 
 interface ImageVideoProps {
@@ -9,6 +9,7 @@ interface ImageVideoProps {
   video?: Video;
   image?: string;
   alt?: string;
+  link?: string;
 }
 
 export const ImageVideo = ({
@@ -17,23 +18,24 @@ export const ImageVideo = ({
   alt,
   vidRef,
   onTouchEnd,
+  link,
 }: ImageVideoProps) => {
   if (video) {
     if (video.type === "url") {
       return (
-        <div className="media-container">
+        <Container link={link}>
           <iframe
             className="video url"
             src={video.string}
             allowFullScreen
             title={alt}
           />
-        </div>
+        </Container>
       );
     }
 
     return (
-      <div className="media-container">
+      <Container link={link}>
         <video
           className="video file"
           controls
@@ -45,15 +47,31 @@ export const ImageVideo = ({
         >
           <source src={video.string} title={alt} />
         </video>
-      </div>
+      </Container>
     );
   }
 
   if (image) {
     return (
-      <div className="media-container">
+      <Container link={link}>
         <img className="image" src={image} alt={alt} />
-      </div>
+      </Container>
     );
   }
+};
+
+interface ContainerProps extends PropsWithChildren {
+  link?: string;
+}
+
+const Container = ({ link, children }: ContainerProps) => {
+  if (link) {
+    return (
+      <a className="media-container" href={link} target="_self">
+        {children}
+      </a>
+    );
+  }
+
+  return <div className="media-container">{children}</div>;
 };

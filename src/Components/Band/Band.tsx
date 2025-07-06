@@ -59,6 +59,7 @@ export const Band = ({
           onTouchEnd={toggleVideoPlaying}
           vidRef={vidRef}
           image={image}
+          link={`/${id}`}
         />
       )}
       <div className={`description  ${index % 2 !== 0 && "reverse"}`}>
