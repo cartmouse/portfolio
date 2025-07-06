@@ -22,6 +22,7 @@ export const LearnMore = ({ info }: LearnMoreProps) => {
         <div className="header">
           <h1 className="title">{info.title}</h1>
           <h2 className="subtitle">{info.subtitle}</h2>
+          <p className="desc">{info.desc}</p>
         </div>
         {info.video ? (
           <ImageVideo onTouchEnd={() => {}} video={info.video} alt={info.alt} />

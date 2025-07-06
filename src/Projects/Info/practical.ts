@@ -11,7 +11,9 @@ export const practical: ProjectCategory = {
       title: "TouchFree",
       subtitle: "Ultraleap",
       desc: "Touchless interaction engine and tooling libraries for Unity and web",
-      text: "Enables touchless gesture control for kiosks and digital signage.",
+      text: `TouchFree is a service and set of tooling libraries that enable touchless gesture control for kiosks and digital signage.
+      
+      During my time on this project I contributed to this project.`,
       image: asset("touchfree.jpg"),
       video: {
         type: "url",

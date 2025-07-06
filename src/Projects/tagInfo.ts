@@ -1,6 +1,7 @@
 export interface Tag {
   text: string;
   color: string;
+  textColor?: string;
 }
 
 // Frontend
@@ -24,4 +25,8 @@ export const unityTag: Tag = { text: "Unity", color: "#FEFEFE" };
 export const godotTag: Tag = { text: "Godot", color: "#588ABB" };
 
 // Mobile
-export const iosTag: Tag = { text: "iOS", color: "#3854C4" };
+export const iosTag: Tag = {
+  text: "iOS",
+  color: "#3854C4",
+  textColor: "#dce1de",
+};

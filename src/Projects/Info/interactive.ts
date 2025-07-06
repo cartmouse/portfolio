@@ -19,7 +19,9 @@ export const interactive: ProjectCategory = {
       title: "Playtonik",
       subtitle: "5of12",
       desc: "Mobile, musical fidget experience with physics based interactions and immersive spacial audio",
-      role: 'I joined this project a few weeks before the v1 launch. In that time, I implemented the "free spin" control, made each shape have a distinct sound, designed the haptics for each shape, and fixed a few bugs.',
+      text: `Playtonik is a musical, fidget experience. It uses physics-based interactions, immersive spatial audio and dynamic haptic feedback for a fun, relaxing experience.
+
+      I joined this project a few weeks before the v1 launch. In that time, I implemented the "free spin" control, made each shape have a distinct sound, and designed the haptic patterns for each shape.`,
       tags: [unityTag, iosTag],
       image: asset("playtonik.jpg"),
       video: {
@@ -42,7 +44,9 @@ export const interactive: ProjectCategory = {
       title: "Madronzio",
       subtitle: "Ultraleap",
       desc: "Immersive and interactive product exploration experience",
-      text: "Created as a demo for TouchFree. The high quality render animations were achieved by exporting frames of a video to PNGs, then rendering them in sequence to a canvas. This allowed for fine control over what frame was displayed at a given moment, giving a more engaging user experience.",
+      text: `Madronzio was created to demonstrate how touchless and gesture interactions can enhance the experience of product exploration.
+
+      The high quality render animations were achieved by exporting frames of a video to PNGs, then rendering them in sequence to a canvas. This allowed for fine control over what frame was displayed at a given moment, giving a more engaging user experience.`,
       tags: [tsTag, reactTag, tauriTag],
       image: asset("madronzio.jpg"),
       video: { type: "file", string: asset("madronzio.mp4") },
@@ -53,7 +57,7 @@ export const interactive: ProjectCategory = {
       title: "Ballpit",
       subtitle: "Ultraleap",
       desc: "Gamified, interactive experience for branch presentation",
-      text: "Created as a demo for TouchFree and designed for entertainment and brand engagement.",
+      text: "Ballpit was created to demonstrate a game-like experience for brand presentation. It was designed to be intuative and engaging to draw people into the experience and engage with the brand on show.",
       tags: [tsTag, reactTag, tauriTag, electronTag, threeJsTag],
       image: asset("ballpit.jpg"),
       video: { type: "file", string: asset("ballpit.mp4") },
@@ -64,7 +68,9 @@ export const interactive: ProjectCategory = {
       title: "Storefront",
       subtitle: "Ultraleap",
       desc: "Menu browsing and checkout experience for quick service retail",
-      text: "Created as a demo for TouchFree. Demonstrates the use of touchless control for a kiosk in a retail environment, allowing for features such as hover states that wouldn't be possible with touchscreens.",
+      text: `Storefront was created to demonstrate how the familiar quick service retail checkout experience can be enhanced through touchless interactions.
+
+      This allowed the exploration of features not possible in the standard touchscreen environment, such as hover states and selection progress.`,
       tags: [tsTag, reactTag, tauriTag, electronTag],
       image: asset("storefront.jpg"),
       video: { type: "file", string: asset("storefront.mp4") },
@@ -75,7 +81,9 @@ export const interactive: ProjectCategory = {
       title: "ShOOH",
       subtitle: "Ultraleap",
       desc: "Immersive and interactive product customisation experience",
-      text: 'Created as a demo for TouchFree. Developing this app involved writing custom shaders to create the "scanner" and the colour customisation.',
+      text: `ShOOH (shoe x Out Of Home) was created to demonstrate and entertaining and engaging way that touchless interaction can be used for product customisation.
+      
+      Development of this experience involved lots of custom graphics programming such as writing shaders to create the "scanner" and changing the colour of the shoe model; and creating the particle effects. This was all implemented utilising the three.js library.`,
       tags: [tsTag, reactTag, tauriTag, electronTag, threeJsTag],
       image: asset("shooh.jpg"),
       video: { type: "file", string: asset("shooh.mp4") },

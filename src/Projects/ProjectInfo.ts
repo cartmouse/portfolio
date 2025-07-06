@@ -19,7 +19,6 @@ export interface Project {
   subtitle: string;
   desc: string;
   text?: string;
-  role?: string;
   alt?: string;
   image?: string;
   video?: Video;

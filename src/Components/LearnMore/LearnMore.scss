@@ -50,6 +50,7 @@
     gap: vars.$lg;
     text-align: center;
     padding: 0 vars.$lg;
+    margin-bottom: vars.$lg;
     box-sizing: border-box;
 
     h1,
@@ -63,6 +64,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: vars.$xs;
 
       .title {
         font-size: vars.$fxxxl;
@@ -81,11 +83,23 @@
           font-size: vars.$flg;
         }
       }
+
+      .desc {
+        font-size: vars.$fmd;
+        color: vars.$text-2;
+        @media (max-width: vars.$trigger-size) {
+          font-size: vars.$fsm;
+        }
+      }
     }
 
     .media-container {
       width: 100%;
       aspect-ratio: 1.77;
+    }
+
+    .text {
+      white-space: pre-wrap;
     }
   }
 }
