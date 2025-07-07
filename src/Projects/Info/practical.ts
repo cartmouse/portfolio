@@ -13,7 +13,7 @@ export const practical: ProjectCategory = {
       desc: "Touchless interaction engine and tooling libraries for Unity and web",
       text: `TouchFree is a service and set of tooling libraries that enable touchless gesture control for kiosks and digital signage.
       
-      During my time on this project I contributed to this project.`,
+      During my time on this project, I contributed to a number of changes and iterations. From a overhaul of the settings UI - featuring a move to a web based UI, and redesign to make it responsive - to investigations into novel, intuative, interpretive gesture detection and more technical focused changes such as integrating unit testing into the web tooling library.`,
       image: asset("touchfree.jpg"),
       video: {
         type: "url",
@@ -45,7 +45,9 @@ export const practical: ProjectCategory = {
       title: "Widgets",
       subtitle: "Ultraleap",
       desc: "Selection of apps for gestural control of Windows and MacOS",
-      text: "Featuring actions such as: play/pause/skip media, navigate through presentation slides, point with a virtual laser, and controlling the cursor to click and scroll.",
+      text: `The Ultraleap Widgets is a desktop launcher that features a selection off apps that allow for gesture control of Windows and MacOS using the Leap Motion Controllers. It enables: play/pause/skiping media, navigating through presentation slides, pointing with a virtual laser, and controlling the cursor to click and scroll.
+
+      This project was written using the Avalonia framework to enable cross-platform development with a single codebase.`,
       image: asset("widgets.jpg"),
       links: [
         {
@@ -61,7 +63,7 @@ export const practical: ProjectCategory = {
       title: "Careers Site",
       subtitle: "IVC Evidensia",
       desc: "Refresh of the job search section of the IVC Evidensia careers site",
-      text: "",
+      text: "I was a key part of the push to refresh the careers site at IVC Evidensia. With involvement in both front and backend development, I helped determine the best way to approach certain challenges (such as the job search dropdowns that had a complex collections of options); developed React components and helped junior developers with their assigned tasks.",
       image: asset("careers.jpg"),
       links: [
         { url: "https://ivcevidensia.co.uk/careers", text: "Visit Site" },
@@ -71,9 +73,11 @@ export const practical: ProjectCategory = {
     {
       id: "tapa-tapa-tapa",
       title: "Tapa-Tapa-Tapa",
-      subtitle: "Uni",
+      subtitle: "University",
       desc: "Multi-tap delay DAW plugin",
-      text: "Compiles to VST3 and AU. Originally made as coursework for my degree.",
+      text: `Tapa-Tapa-Tapa is a multi-tap delay plugin that compiles to VST3 and AU formats.
+      
+      This project helped to solidify my understanding of digital audio priniples (such as buffers and delay lines) by having to implement them in C++ and the JUCE framework.`,
       image: asset("tapa-tapa-tapa.jpg"),
       alt: "The following controls of the Tapa-Tapa-Tapa delay plugin: Dry/Wet, Tap Mix, Feedback %, Time and Tap %.",
       video: { type: "file", string: asset("tapa-tapa-tapa.mp4") },
@@ -90,8 +94,8 @@ export const practical: ProjectCategory = {
       id: "buttons",
       title: "Evie's Buttons",
       subtitle: "Personal",
-      desc: "Aid for people who sometimes prefer to remain non-verbal",
-      text: "Customisable buttons that use the device's text-to-speech engine to say the words aloud.",
+      desc: "Communication aid for people who sometimes prefer to remain non-verbal",
+      text: `Customisable buttons that use the device's text-to-speech engine to enable simple and repeatable communication.`,
       image: asset("eviesbuttons.jpg"),
       video: { type: "file", string: asset("eviesbuttons.mp4") },
       links: [

@@ -19,6 +19,11 @@
 
   .attr {
     font-size: vars.$fxs;
+    margin-top: vars.$xxs;
+
+    @media (max-width: vars.$trigger-size) {
+      margin-top: 0;
+    }
 
     & > a {
       color: vars.$highlight;
