@@ -1,0 +1,47 @@
+@use "../../vars.module.scss";
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: vars.$lg;
+  box-sizing: border-box;
+  width: 100%;
+
+  @media (max-width: vars.$trigger-size) {
+    padding: vars.$sm;
+    gap: vars.$md;
+  }
+
+  &.alt-background {
+    background: vars.$background-gradient-2;
+  }
+
+  .attr {
+    font-size: vars.$fxs;
+    margin-top: vars.$xxs;
+
+    @media (max-width: vars.$trigger-size) {
+      margin-top: 0;
+    }
+
+    & > a {
+      color: vars.$highlight;
+    }
+  }
+
+  .copyright {
+    font-size: vars.$fsm;
+
+    @media (max-width: vars.$trigger-size) {
+      font-size: vars.$fxs;
+    }
+  }
+
+  .link {
+    width: vars.$lg;
+    @media (max-width: vars.$trigger-size) {
+      width: vars.$md;
+    }
+  }
+}

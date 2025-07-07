@@ -1,26 +1,35 @@
-import { ImageLinks } from "..";
 import "./About.scss";
+import { ImageLinks } from "@Components";
+import { asset, useScrollTrigger } from "@Utils";
 
 export const About = () => {
+  const refs = useScrollTrigger();
+
   return (
     <div className="about">
-      <div className="about__body">
+      <div className="profile-container" ref={(r) => r && refs.current.push(r)}>
+        <img className="profile" src={asset("profile.jpg")} />
+      </div>
+
+      <div className="body" ref={(r) => r && refs.current.push(r)}>
         <p>Hi, I'm Tom!</p>
         <p>
-          I'm a Software Engineer with 5 years of experience creating engaging,
-          efficient and user-centric applications.
+          I've been creating engaging applications for over five years, driven
+          by a love of using technology to craft experiences that enhance
+          people's lives.
         </p>
         <p>
-          Most of my experience lies in and around the web, having become
-          intimately familiar with TypeScript, JavaScript, ReactJS, CSS/SASS and
-          C#/.NET. I'm always looking for ways to expand my knowledge and
-          skills, having explored desktop app development using Avalonia;
-          robotics and automation with Beckhoff's TwinCAT system; and created
-          audio and graphics software with C/C++.
+          My career has spanned a variety of industries - audio equipment,
+          spatial interactions, web development, and robotics. Paired with a
+          background in audio tech from my Music and Sound Recording
+          (Tonmeister) degree, I've gained a unique perspective on how people
+          engage with technology which helps me craft meaningful and practical
+          experiences.
         </p>
         <p>
-          I'm currently on a game development journey, primarily using Godot and
-          Bevy.
+          Currently, I'm combining my passions for video games, music, and
+          software to dive into game development, graphics, and audio
+          programming.
         </p>
         <ImageLinks />
       </div>

@@ -1,0 +1,12 @@
+@use "../../vars.module.scss";
+
+.media-container {
+  .image,
+  .video {
+    border-radius: vars.$sm;
+    object-fit: cover;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+}

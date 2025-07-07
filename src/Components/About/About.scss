@@ -1,9 +1,57 @@
+@use "../../vars.module.scss";
+
+.anchor#about {
+  top: -1 * vars.$total-nav-size;
+}
+
 .about {
-  &__heading {
-    font-size: 1.2rem;
+  height: calc(100dvh - vars.$total-nav-size);
+  width: 100%;
+
+  padding: vars.$sm vars.$md;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: vars.$trigger-size) {
+    gap: vars.$md;
+  }
+  gap: vars.$xxl;
+
+  background: vars.$background-gradient-2;
+
+  .profile-container {
+    filter: drop-shadow(0 vars.$xxs vars.$xxs vars.$text);
+
+    .profile {
+      clip-path: circle();
+      @media (max-width: vars.$trigger-size) {
+        width: 50dvw;
+      }
+      width: 400px;
+    }
   }
 
-  &__body {
-    font-size: 1rem;
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: vars.$sm;
+    gap: vars.$md;
+    max-width: vars.$content-max-width;
+    font-size: vars.$fmd;
+    color: vars.$text-2;
+
+    @media (max-width: vars.$trigger-size) {
+      font-size: vars.$fsm;
+    }
+  }
+
+  p {
+    margin: 0;
   }
 }

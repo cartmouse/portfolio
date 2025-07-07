@@ -1,0 +1,46 @@
+@use "../vars.module.scss";
+
+.projects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+
+  .category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: vars.$lg;
+    width: 100%;
+    padding-bottom: vars.$xxl;
+
+    &.alt-background {
+      background: vars.$background-gradient-2;
+    }
+
+    .bands {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: vars.$xxl;
+      width: 100%;
+      max-width: vars.$content-max-width;
+
+      @media (max-width: vars.$trigger-size) {
+        gap: vars.$xxl;
+        padding: 0 vars.$lg;
+        box-sizing: border-box;
+      }
+    }
+
+    > .title {
+      @media (max-width: vars.$trigger-size) {
+        font-size: vars.$fxl;
+        margin: vars.$xl 0 0 0;
+      }
+      font-size: vars.$fxxxl;
+      margin: vars.$xxl 0 vars.$lg 0;
+    }
+  }
+}

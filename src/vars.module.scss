@@ -1,59 +1,76 @@
-$prussian-blue: #012a4a;
-$indigo-dye: #013a63;
-$indigo-dye-2: #01497c;
-$indigo-dye-3: #014f86;
-$ucla-blue: #2a6f97;
-$cerulean: #2c7da0;
-$air-force-blue: #468faf;
-$air-superiority-blue: #61a5c2;
-$sky-blue: #89c2d9;
-$light-blue: #a9d6e5;
-$yellow: #ffff4d;
+$xxs: 4px;
+$xs: 8px;
+$sm: 16px;
+$md: 24px;
+$lg: 32px;
+$xl: 48px;
+$xxl: 64px;
+
+$fxs: 10px;
+$fsm: 14px;
+$fmd: 16px;
+$flg: 18px;
+$fxl: 28px;
+$fxxl: 32px;
+$fxxxl: 48px;
+
+$background: #dce1de;
+$background-2: lighten($background, 5%);
+$background-shadow: darken($background, 30%);
+$text: #1f2421;
+$text-2: lighten($text, 15%);
+$green-1: #9cc5a1;
+$green-2: #49a078;
+$green-3: #216869;
+$highlight: #823133;
 
 $background-gradient: linear-gradient(
   to right,
-  $cerulean,
-  darken($cerulean, 3%)
+  $background,
+  darken($background, 10%)
 );
-$background-gradient-alt: linear-gradient(
+
+$background-gradient-2: linear-gradient(
   to right,
-  $indigo-dye-2,
-  darken($indigo-dye-2, 3%)
+  $background-2,
+  darken($background-2, 10%)
 );
 
-$nav-color: #01497ca0;
-$nav-size: 2.2rem;
-$nav-padding: 0.2rem;
-$padded-nav-size: $nav-size + $nav-padding * 2;
+$green-1-gradient: linear-gradient(135deg, $green-1, darken($green-1, 5%));
 
-$band-margin: 1.5rem;
-$title-margin: 2rem;
+$green-2-gradient: linear-gradient(135deg, $green-2, darken($green-2, 10%));
 
-$shadow: 0px 5px 8px darken($cerulean, 25);
+$shadow: 0px 2px 5px $background-shadow;
+$green-shadow: 0px 2px 5px darken($green-1, 30%);
+
 $trigger-size: 650px;
 
-@mixin link {
-  color: inherit;
-  text-decoration: none;
-  transition: 0.3s ease-out color;
-  cursor: pointer;
+$nav-color: $green-1;
+$nav-padding: $sm;
+$nav-size: $md;
 
-  &:hover,
-  &--selected {
-    color: $yellow;
+$total-nav-size: $nav-size + $nav-padding * 2;
+
+$content-max-width: 1000px;
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
+@mixin fade {
+  animation: fade 0.5s linear;
+}
+
 :export {
-  prussianBlue: $prussian-blue;
-  indigoDye: $indigo-dye;
-  indigoDye2: $indigo-dye-2;
-  indigoDye3: $indigo-dye-3;
-  uclaBlue: $ucla-blue;
-  cerulean: $cerulean;
-  airForceBlue: $air-force-blue;
-  airSuperiorityBlue: $air-superiority-blue;
-  skyBlue: $sky-blue;
-  lightBlue: $light-blue;
-  yellow: $yellow;
+  yellow: $highlight;
+  background: $background;
+  text: $text;
+  green-1: $green-1;
+  green-2: $green-2;
+  green-3: $green-3;
 }

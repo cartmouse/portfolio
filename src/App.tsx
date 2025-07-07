@@ -1,24 +1,24 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.scss";
-import colors from "./vars.module.scss";
-
-import { Band } from "./Band";
-import { About, Projects, ImageLinks } from "./Components";
+import { About } from "@Components";
+import { Footer } from "./Components/Footer/Footer";
+import { BandRefs } from "@Utils";
+import { infoMap, Projects } from "@Projects";
 
 export const App = () => {
   const [url, setUrl] = useState("");
-  const bandRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const bandRefs = useRef<BandRefs>({});
 
   useEffect(() => {
     window.addEventListener("hashchange", (event) => {
       setUrl(event.newURL);
     });
-    window.addEventListener("scroll", () => {
-      bandRefs.current.forEach((ref) => {
+    window.addEventListener("scrollend", () => {
+      Object.values(bandRefs.current).forEach((ref) => {
         if (!ref) return;
         const rect = ref.getBoundingClientRect();
         const top = rect.top;
-        if (top >= 0 && top < 50) {
+        if (top >= -50 && top < 150) {
           setUrl(window.location.origin + `/#${ref.id}`);
         }
       });
@@ -27,41 +27,49 @@ export const App = () => {
 
   return (
     <div className="background">
-      <div className="container" id="" ref={(r) => bandRefs.current.push(r)}>
-        <div className="title">
-          <div className="title__title">TOM CARTWRIGHT</div>
-          <div className="title__subtitle">CARTMOUSE | SOFTWARE ENGINEER</div>
+      <div
+        className="container"
+        id=""
+        ref={(r) => (bandRefs.current["home"] = r)}
+      >
+        <div className="front">
+          <div className="title">
+            <div className="name">Tom Cartwright</div>
+            <div className="subname">cartmouse</div>
+          </div>
+          <div className="tagline">
+            <p className="line">Creative Programmer</p>
+            <br />
+            <p className="line">Software Engineer</p>
+          </div>
+          <div className="tech">Games | Interactive Experiences | Audio</div>
         </div>
         <div className="nav">
-          <NavLink text="HOME" url={url} anchor="#" />
-          <NavLink text="ABOUT" url={url} anchor="#about" />
-          <NavLink text="PROJECTS" url={url} anchor="#projects" />
+          <NavLink text="Home" url={url} anchor="#" />
+          <NavLink text="About" url={url} anchor="#about" />
+          <span>|</span>
+          {infoMap.map(({ title, anchor }) => {
+            const anchorString = `#${anchor}`;
+            const selected = url.includes(anchorString);
+            return (
+              <a
+                key={anchorString}
+                className={`nav-item ${selected && "selected"}`}
+                href={anchorString}
+              >
+                {title}
+              </a>
+            );
+          })}
         </div>
-        <Band
-          color={colors["indigoDye2"]}
+        <div
+          className="anchor"
           id="about"
-          bandRefs={bandRefs}
-          circle
-        >
-          <About />
-        </Band>
+          ref={(r) => (bandRefs.current["about"] = r)}
+        />
+        <About />
         <Projects url={url} bandRefs={bandRefs} />
-        <div className="footer">
-          <ImageLinks />
-          <div className="footer__attr">
-            Favicon by{" "}
-            <a
-              href="https://dribbble.com/limastd?ref=svgrepo.com"
-              target="_blank"
-            >
-              Lima Studio
-            </a>{" "}
-            in CC Attribution License via{" "}
-            <a href="https://www.svgrepo.com/" target="_blank">
-              SVG Repo
-            </a>
-          </div>
-        </div>
+        <Footer altBackground />
       </div>
     </div>
   );
@@ -78,11 +86,8 @@ const NavLink = ({ text, url, anchor }: NavLinkProps) => {
   const selected =
     hash.startsWith(anchor) && hash.split("/")[0].endsWith(anchor);
   return (
-    <a
-      className={`nav__link ${selected && "nav__link--selected"}`}
-      href={anchor}
-    >
-      {text.toUpperCase()}
+    <a className={`nav-item ${selected && "selected"}`} href={anchor}>
+      {text}
     </a>
   );
 };

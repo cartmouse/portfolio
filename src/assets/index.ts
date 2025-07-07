@@ -1,11 +1,4 @@
 export { default as GitHub } from "./github.svg";
+export { default as GitHubLight } from "./github-light.svg";
 export { default as LinkedIn } from "./linkedin.svg";
 export { default as Email } from "./email.svg";
-export { default as EviesButtons } from "./eviesbuttons.png";
-export { default as Widgets } from "./widgets.png";
-export { default as Madronzio } from "./madronzio.webm";
-export { default as Ballpit } from "./ballpit.webm";
-export { default as Storefront } from "./storefront.webm";
-export { default as shOOH } from "./shooh.webm";
-export { default as Tapa } from "./tapa-tapa-tapa.webm";
-export { default as Careers } from "./careers.jpg";
