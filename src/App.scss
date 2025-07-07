@@ -23,17 +23,8 @@ h4 {
   margin: 0;
 }
 
-@keyframes enter {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .enter {
-  animation: enter 1s;
+  @include vars.fade;
 }
 
 .anchor {

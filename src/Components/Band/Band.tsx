@@ -2,8 +2,9 @@ import "./Band.scss";
 
 import { useRef } from "react";
 import { useScrollTrigger } from "@Utils";
-import { Project, Links } from "@Projects";
+import { Project } from "@Projects";
 import { ImageVideo } from "@Components";
+import { LinkButton } from "../LinkButton/LinkButton";
 
 interface BandProps {
   info: Project;
@@ -11,7 +12,7 @@ interface BandProps {
 }
 
 export const Band = ({
-  info: { alt, image, title, subtitle, desc, links, id },
+  info: { alt, image, title, subtitle, desc, id },
   index,
 }: BandProps) => {
   const fadeRefs = useScrollTrigger();
@@ -69,7 +70,7 @@ export const Band = ({
           </div>
         </div>
         <p className="desc">{desc}</p>
-        <Links projId={id} links={links} />
+        <LinkButton link={{ url: id, text: "Learn More" }} target="_self" />
       </div>
     </div>
   );

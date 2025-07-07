@@ -1,7 +1,8 @@
 import { Footer } from "../Footer/Footer";
 import { ImageVideo } from "../ImageVideo/ImageVideo";
+import { LinkButton } from "../LinkButton/LinkButton";
 import "./LearnMore.scss";
-import { Tags, Project, Links } from "@Projects";
+import { Tags, Project } from "@Projects";
 import { useNavigate } from "react-router-dom";
 
 interface LearnMoreProps {
@@ -32,7 +33,10 @@ export const LearnMore = ({ info }: LearnMoreProps) => {
         {}
         <Tags tags={info.tags} />
         <p className="text">{info.text}</p>
-        <Links links={info.links} />
+        <div className="links">
+          {info.links &&
+            info.links.map((link, i) => <LinkButton link={link} key={i + 1} />)}
+        </div>
       </div>
       <Footer altBackground />
     </div>

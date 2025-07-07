@@ -53,6 +53,19 @@ $total-nav-size: $nav-size + $nav-padding * 2;
 
 $content-max-width: 1000px;
 
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin fade {
+  animation: fade 0.5s linear;
+}
+
 :export {
   yellow: $highlight;
   background: $background;
