@@ -19,11 +19,12 @@ export const About = () => {
           people's lives.
         </p>
         <p>
-          My background in the audio tech world, with a BSc in Music and Sound
-          Recording (Tonmeister), combined with my varied experience in various
-          industries (audio equipment, spatial interactions, web development,
-          robotics) has given me unique insight into how people engage and
-          interact with products and experiences.
+          My career has spanned a variety of industries - audio equipment,
+          spatial interactions, web development, and robotics. Paired with a
+          background in audio tech from my Music and Sound Recording
+          (Tonmeister) degree, I've gained a unique perspective on how people
+          engage with technology which helps me craft meaningful and practical
+          experiences.
         </p>
         <p>
           Currently, I'm combining my passions for video games, music, and
