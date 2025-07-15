@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./App.scss";
 import { About } from "@Components";
 import { Footer } from "./Components/Footer/Footer";
-import { BandRefs } from "@Utils";
+import { asset, BandRefs } from "@Utils";
 import { infoMap, Projects } from "@Projects";
 
 export const App = () => {
@@ -37,12 +37,15 @@ export const App = () => {
             <div className="name">Tom Cartwright</div>
             <div className="subname">cartmouse</div>
           </div>
-          <div className="tagline">
-            <p className="line">Creative Programmer</p>
-            <br />
-            <p className="line">Software Engineer</p>
+          <div className="profile-container">
+            <img className="profile" src={asset("profile.jpg")} />
           </div>
-          <div className="tech">Games | Interactive Experiences | Audio</div>
+          <div className="tagline">
+            <p className="role">Creative Technologist</p>
+            <p className="desc">
+              Software Engineer | Experience Developer | Audio Person
+            </p>
+          </div>
         </div>
         <div className="nav">
           <NavLink text="Home" url={url} anchor="#" />

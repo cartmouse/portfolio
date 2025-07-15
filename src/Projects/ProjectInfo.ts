@@ -29,6 +29,7 @@ export interface Project {
 export interface ProjectCategory {
   title: string;
   anchor: string;
+  description: string;
   projects: Project[];
 }
 

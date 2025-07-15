@@ -22,18 +22,6 @@
 
   background: vars.$background-gradient-2;
 
-  .profile-container {
-    filter: drop-shadow(0 vars.$xxs vars.$xxs vars.$text);
-
-    .profile {
-      clip-path: circle();
-      @media (max-width: vars.$trigger-size) {
-        width: 50dvw;
-      }
-      width: 400px;
-    }
-  }
-
   .body {
     display: flex;
     flex-direction: column;
@@ -43,11 +31,11 @@
     border-radius: vars.$sm;
     gap: vars.$md;
     max-width: vars.$content-max-width;
-    font-size: vars.$fmd;
-    color: vars.$text-2;
+    font-size: vars.$flg;
+    color: vars.$text;
 
     @media (max-width: vars.$trigger-size) {
-      font-size: vars.$fsm;
+      font-size: vars.$fmd;
     }
   }
 

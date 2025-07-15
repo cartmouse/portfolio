@@ -5,6 +5,7 @@ import { asset } from "@Utils";
 export const practical: ProjectCategory = {
   title: "Practical",
   anchor: "practical",
+  description: "Solving problems with tools and apps",
   projects: [
     {
       id: "touchfree",

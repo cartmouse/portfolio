@@ -5,6 +5,7 @@ import { asset } from "@Utils";
 export const experimental: ProjectCategory = {
   title: "Experimental",
   anchor: "experimental",
+  description: "Exploring new ideas and learning new skills",
   projects: [
     {
       id: "renderer",

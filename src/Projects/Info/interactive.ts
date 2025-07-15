@@ -13,6 +13,7 @@ import { asset } from "@Utils";
 export const interactive: ProjectCategory = {
   title: "Interactive",
   anchor: "interactive",
+  description: "Engaging users with interesting and playful interactions",
   projects: [
     {
       id: "playtonik",

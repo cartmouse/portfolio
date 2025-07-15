@@ -34,13 +34,34 @@
       }
     }
 
-    > .title {
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: vars.$md;
+      text-align: center;
+
       @media (max-width: vars.$trigger-size) {
-        font-size: vars.$fxl;
-        margin: vars.$xl 0 0 0;
+        margin-bottom: 0;
       }
-      font-size: vars.$fxxxl;
-      margin: vars.$xxl 0 vars.$lg 0;
+
+      .title {
+        @media (max-width: vars.$trigger-size) {
+          font-size: vars.$fxl;
+          margin: vars.$xl 0 0 0;
+        }
+        font-size: vars.$fxxxl;
+        margin: vars.$xxl 0 0 0;
+      }
+
+      .description {
+        margin: 0 vars.$sm;
+        font-size: vars.$flg;
+        color: vars.$text-2;
+        @media (max-width: vars.$trigger-size) {
+          font-size: vars.$fmd;
+        }
+      }
     }
   }
 }

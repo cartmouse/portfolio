@@ -1,16 +1,12 @@
 import "./About.scss";
 import { ImageLinks } from "@Components";
-import { asset, useScrollTrigger } from "@Utils";
+import { useScrollTrigger } from "@Utils";
 
 export const About = () => {
   const refs = useScrollTrigger();
 
   return (
     <div className="about">
-      <div className="profile-container" ref={(r) => r && refs.current.push(r)}>
-        <img className="profile" src={asset("profile.jpg")} />
-      </div>
-
       <div className="body" ref={(r) => r && refs.current.push(r)}>
         <p>Hi, I'm Tom!</p>
         <p>

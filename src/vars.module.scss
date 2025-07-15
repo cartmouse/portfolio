@@ -53,6 +53,8 @@ $total-nav-size: $nav-size + $nav-padding * 2;
 
 $content-max-width: 1000px;
 
+$border-radius: $sm;
+
 @keyframes fade {
   0% {
     opacity: 0;
@@ -63,14 +65,5 @@ $content-max-width: 1000px;
 }
 
 @mixin fade {
-  animation: fade 0.5s linear;
-}
-
-:export {
-  yellow: $highlight;
-  background: $background;
-  text: $text;
-  green-1: $green-1;
-  green-2: $green-2;
-  green-3: $green-3;
+  animation: fade 0.5s ease-in;
 }
