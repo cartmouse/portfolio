@@ -2,9 +2,9 @@ import "./Footer.scss";
 
 import { ImageLinks } from "@Components";
 
-export const Footer = ({ altBackground }: { altBackground: boolean }) => {
+export const Footer = ({ altBackground }: { altBackground?: boolean }) => {
   return (
-    <div className={`footer ${altBackground && "alt-background"}`}>
+    <div className={`footer ${altBackground ? "alt-background" : ""}`}>
       <div>
         <div className="copyright">© Tom Cartwright 2025</div>
         <div className="attr">

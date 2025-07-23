@@ -16,7 +16,12 @@ export const experimental: ProjectCategory = {
       
       This has given me a much stronger understanding of the graphics rendering process as there is little to no abstraction and everything has to be implemented manually.`,
       tags: [cTag],
-      image: asset("renderer.jpg"),
+      images: [
+        {
+          src: asset("renderer.jpg"),
+          alt: "The output of the 3D renderer software, displaying a 3D model of a jet",
+        },
+      ],
       video: { type: "file", string: asset("renderer.mp4") },
       links: [
         {
@@ -40,7 +45,12 @@ export const experimental: ProjectCategory = {
       
       This was a great hands on way to explore a new rendering process and expand my knowledge of shaders.`,
       tags: [godotTag],
-      image: asset("grass.jpg"),
+      images: [
+        {
+          src: asset("grass.jpg"),
+          alt: "Shell textured grass strands, moving as if blown by wind",
+        },
+      ],
       video: { type: "file", string: asset("grass.mp4") },
       links: [
         {

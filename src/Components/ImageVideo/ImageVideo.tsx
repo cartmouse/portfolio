@@ -1,21 +1,19 @@
 import "./ImageVideo.scss";
 
 import { MutableRefObject, PropsWithChildren } from "react";
-import { Video } from "@Projects";
+import { Image, Video } from "@Projects";
 
 interface ImageVideoProps {
   onTouchEnd: () => void;
   vidRef?: MutableRefObject<HTMLVideoElement | null>;
   video?: Video;
-  image?: string;
-  alt?: string;
+  image?: Image;
   link?: string;
 }
 
 export const ImageVideo = ({
   video,
   image,
-  alt,
   vidRef,
   onTouchEnd,
   link,
@@ -28,7 +26,7 @@ export const ImageVideo = ({
             className="video url"
             src={video.string}
             allowFullScreen
-            title={alt}
+            title={image?.alt}
           />
         </Container>
       );
@@ -41,11 +39,11 @@ export const ImageVideo = ({
           controls
           autoPlay
           loop
-          title={alt}
+          title={image?.alt}
           ref={vidRef}
           onTouchEnd={onTouchEnd}
         >
-          <source src={video.string} title={alt} />
+          <source src={video.string} title={image?.alt} />
         </video>
       </Container>
     );
@@ -54,7 +52,7 @@ export const ImageVideo = ({
   if (image) {
     return (
       <Container link={link}>
-        <img className="image" src={image} alt={alt} />
+        <img className="image" src={image.src} alt={image?.alt} />
       </Container>
     );
   }

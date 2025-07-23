@@ -12,7 +12,7 @@ interface BandProps {
 }
 
 export const Band = ({
-  info: { alt, image, title, subtitle, desc, id },
+  info: { images, title, subtitle, desc, id },
   index,
 }: BandProps) => {
   const fadeRefs = useScrollTrigger();
@@ -54,13 +54,12 @@ export const Band = ({
       onMouseEnter={() => playVideo()}
       onMouseLeave={() => pauseVideo()}
     >
-      {image && (
+      {images && (
         <ImageVideo
-          alt={alt}
           onTouchEnd={toggleVideoPlaying}
           vidRef={vidRef}
-          image={image}
-          link={`/${id}`}
+          image={images[0]}
+          link={`/projects/${id}`}
         />
       )}
       <div className={`description  ${index % 2 !== 0 && "reverse"}`}>
@@ -70,7 +69,10 @@ export const Band = ({
           </div>
         </div>
         <p className="desc">{desc}</p>
-        <LinkButton link={{ url: id, text: "Learn More" }} target="_self" />
+        <LinkButton
+          link={{ url: `/projects/${id}`, text: "Learn More" }}
+          target="_self"
+        />
       </div>
     </div>
   );

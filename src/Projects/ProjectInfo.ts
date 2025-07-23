@@ -13,6 +13,11 @@ export interface Video {
   string: string;
 }
 
+export interface Image {
+  src: string;
+  alt: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -20,7 +25,7 @@ export interface Project {
   desc: string;
   text?: string;
   alt?: string;
-  image?: string;
+  images?: Image[];
   video?: Video;
   links?: Link[];
   tags?: Tag[];

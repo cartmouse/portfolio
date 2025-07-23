@@ -24,7 +24,7 @@ export const interactive: ProjectCategory = {
 
       I joined this project a few weeks before the v1 launch. In that time, I implemented the "free spin" control, made each shape have a distinct sound, and designed the haptic patterns for each shape.`,
       tags: [unityTag, iosTag],
-      image: asset("playtonik.jpg"),
+      images: [{ src: asset("playtonik.jpg"), alt: "The Playtonik logo" }],
       video: {
         type: "url",
         string: "https://www.youtube.com/embed/MkLJ0BE3qDk",
@@ -49,7 +49,12 @@ export const interactive: ProjectCategory = {
 
       The high quality render animations were achieved by exporting frames of a video to PNGs, then rendering them in sequence to a canvas. This allowed for fine control over what frame was displayed at a given moment, giving a more engaging user experience.`,
       tags: [tsTag, reactTag, tauriTag],
-      image: asset("madronzio.jpg"),
+      images: [
+        {
+          src: asset("madronzio.jpg"),
+          alt: "A kiosk showing a perfume bottle being explored.",
+        },
+      ],
       video: { type: "file", string: asset("madronzio.mp4") },
       alt: "A kiosk with a retail application being used. Showing the inner mechanics of a watch being explored.",
     },
@@ -60,7 +65,7 @@ export const interactive: ProjectCategory = {
       desc: "Gamified, interactive experience for branch presentation",
       text: "Ballpit was created to demonstrate a game-like experience for brand presentation. It was designed to be intuative and engaging to draw people into the experience and engage with the brand on show.",
       tags: [tsTag, reactTag, tauriTag, electronTag, threeJsTag],
-      image: asset("ballpit.jpg"),
+      images: [{ src: asset("ballpit.jpg"), alt: "" }],
       video: { type: "file", string: asset("ballpit.mp4") },
       alt: 'A kiosk with a brand experience application being used. The user is prompted to "clear the balls" then balls enter the screen, the user moves them around, emptying the pit. A message reading "TouchFree is engaging" is displayed under the balls.',
     },
@@ -73,7 +78,7 @@ export const interactive: ProjectCategory = {
 
       This allowed the exploration of features not possible in the standard touchscreen environment, such as hover states and selection progress.`,
       tags: [tsTag, reactTag, tauriTag, electronTag],
-      image: asset("storefront.jpg"),
+      images: [{ src: asset("storefront.jpg"), alt: "" }],
       video: { type: "file", string: asset("storefront.mp4") },
       alt: "A kiosk with a quick service retail application being used. The user navigates through a series of food menus, selecting their order.",
     },
@@ -86,7 +91,7 @@ export const interactive: ProjectCategory = {
       
       Development of this experience involved lots of custom graphics programming such as writing shaders to create the "scanner" and changing the colour of the shoe model; and creating the particle effects. This was all implemented utilising the three.js library.`,
       tags: [tsTag, reactTag, tauriTag, electronTag, threeJsTag],
-      image: asset("shooh.jpg"),
+      images: [{ src: asset("shooh.jpg"), alt: "" }],
       video: { type: "file", string: asset("shooh.mp4") },
       alt: 'A kiosk with a product customisation application being used. The user is prompted to "pull scanner down" which reveals a training shoe. The shoe is rotated by the user swiping their hand. The shoe is expanded when a slider is moved along a track, then customised by selecting a section of the shoe and selecting a colour.',
     },
