@@ -15,17 +15,16 @@ export const About = () => {
           people's lives.
         </p>
         <p>
-          My career has spanned a variety of industries - audio equipment,
+          My career has spanned a variety of industries: audio equipment,
           spatial interactions, web development, and robotics. Paired with a
-          background in audio tech from my Music and Sound Recording
-          (Tonmeister) degree, I've gained a unique perspective on how people
-          engage with technology which helps me craft meaningful and practical
-          experiences.
+          background in audio tech from my BSc. in Music and Sound Recording
+          (Tonmeister), I've gained a unique perspective on how people engage
+          with technology, helping me create meaningful and practical
+          applications that help and delight their users.
         </p>
         <p>
           Currently, I'm combining my passions for video games, music, and
-          software to dive into game development, graphics, and audio
-          programming.
+          software with game development, graphics, and audio programming.
         </p>
         <ImageLinks />
       </div>
