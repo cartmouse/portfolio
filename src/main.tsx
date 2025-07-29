@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { App } from "./App.tsx";
-import { LearnMore } from "@Components";
+import { LearnMore, MoreProjects } from "@Components";
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import {
@@ -14,18 +14,25 @@ const createRoutes = (category: ProjectCategory) =>
   category.projects.map((proj, i) => (
     <Route
       key={`${proj.title}-${i}`}
-      path={`${proj.id}`}
+      path={`/projects/${proj.id}`}
       element={<LearnMore info={proj} />}
     />
   ));
+
+const projects = [interactive, experimental, practical];
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Router>
     <Routes>
       <Route path="/" element={<App />} />
-      {createRoutes(interactive)}
-      {createRoutes(experimental)}
-      {createRoutes(practical)}
+      {projects.map((project) => createRoutes(project))}
+      {projects.map((project) => (
+        <Route
+          key={`${project.anchor}`}
+          path={`/projects/${project.anchor}`}
+          element={<MoreProjects category={project} />}
+        />
+      ))}
     </Routes>
   </Router>
 );

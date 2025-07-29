@@ -1,11 +1,14 @@
+import { useScrollTrigger } from "@Utils";
 import "./Footer.scss";
 
 import { ImageLinks } from "@Components";
 
-export const Footer = ({ altBackground }: { altBackground: boolean }) => {
+export const Footer = ({ altBackground }: { altBackground?: boolean }) => {
+  const addRefs = useScrollTrigger();
+
   return (
-    <div className={`footer ${altBackground && "alt-background"}`}>
-      <div>
+    <div className={`footer ${altBackground ? "alt-background" : ""}`}>
+      <div ref={addRefs}>
         <div className="copyright">© Tom Cartwright 2025</div>
         <div className="attr">
           Favicon by{" "}

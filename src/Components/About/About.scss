@@ -8,17 +8,13 @@
   height: calc(100dvh - vars.$total-nav-size);
   width: 100%;
 
-  padding: vars.$sm vars.$md;
+  padding: vars.$sm;
   box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media (max-width: vars.$trigger-size) {
-    gap: vars.$md;
-  }
-  gap: vars.$xxl;
 
   background: vars.$background-gradient-2;
 
@@ -35,7 +31,8 @@
     color: vars.$text;
 
     @media (max-width: vars.$trigger-size) {
-      font-size: vars.$fmd;
+      font-size: vars.$fsm;
+      gap: vars.$md;
     }
   }
 

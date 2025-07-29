@@ -1,3 +1,4 @@
+import { useScrollTrigger } from "@Utils";
 import "./ImageLinks.scss";
 import { Email, GitHub, LinkedIn } from "@Assets";
 
@@ -16,8 +17,10 @@ export const ImageLink = ({ href, image, altText }: ImageLinkProps) => {
 };
 
 export const ImageLinks = () => {
+  const addRefs = useScrollTrigger();
+
   return (
-    <div className="image-links">
+    <div className="image-links" ref={addRefs}>
       <ImageLink
         href="https://github.com/cartmouse"
         image={GitHub}

@@ -7,6 +7,7 @@
   padding: vars.$lg;
   box-sizing: border-box;
   width: 100%;
+  background: vars.$background-gradient;
 
   @media (max-width: vars.$trigger-size) {
     padding: vars.$sm;

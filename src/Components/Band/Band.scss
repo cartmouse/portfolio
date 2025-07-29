@@ -29,7 +29,7 @@ $vid-mult: 1.33;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: vars.$xxl 0;
+    padding: vars.$xl 0;
     box-sizing: border-box;
 
     @media (max-width: vars.$trigger-size) {

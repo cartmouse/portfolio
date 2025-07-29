@@ -1,23 +1,20 @@
-import { Footer } from "../Footer/Footer";
-import { ImageVideo } from "../ImageVideo/ImageVideo";
-import { LinkButton } from "../LinkButton/LinkButton";
 import "./LearnMore.scss";
+
+import { Footer } from "../Footer/Footer";
+import { Media } from "../Media/Media";
+import { LinkButton } from "../LinkButton/LinkButton";
 import { Tags, Project } from "@Projects";
-import { useNavigate } from "react-router-dom";
+import { BackButton } from "../BackButton/BackButton";
 
 interface LearnMoreProps {
   info: Project;
 }
 
 export const LearnMore = ({ info }: LearnMoreProps) => {
-  const nav = useNavigate();
-
   return (
     <div className="learn-more-container">
       <nav className="navbar">
-        <button className="nav-item" onClick={() => nav(-1)}>
-          Back
-        </button>
+        <BackButton />
       </nav>
       <div className="content">
         <div className="header">
@@ -25,12 +22,9 @@ export const LearnMore = ({ info }: LearnMoreProps) => {
           <h2 className="subtitle">{info.subtitle}</h2>
           <p className="desc">{info.desc}</p>
         </div>
-        {info.video ? (
-          <ImageVideo onTouchEnd={() => {}} video={info.video} alt={info.alt} />
-        ) : (
-          <ImageVideo onTouchEnd={() => {}} image={info.image} alt={info.alt} />
-        )}
-        {}
+        <div className="more-images">
+          {info.media?.map((media, i) => <Media src={media} key={i + 1} />)}
+        </div>
         <Tags tags={info.tags} />
         <p className="text">{info.text}</p>
         <div className="links">
