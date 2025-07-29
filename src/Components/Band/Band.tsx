@@ -1,10 +1,8 @@
 import "./Band.scss";
 
-import { useRef } from "react";
 import { useScrollTrigger } from "@Utils";
 import { Project } from "@Projects";
-import { ImageVideo } from "@Components";
-import { LinkButton } from "../LinkButton/LinkButton";
+import { Media, LinkButton } from "@Components";
 
 interface BandProps {
   info: Project;
@@ -12,56 +10,14 @@ interface BandProps {
 }
 
 export const Band = ({
-  info: { images, title, subtitle, desc, id },
+  info: { thumbnail, media, title, subtitle, desc, id },
   index,
 }: BandProps) => {
-  const fadeRefs = useScrollTrigger();
-  const vidRef = useRef<HTMLVideoElement | null>(null);
-
-  const onScroll = () => {
-    if (!vidRef.current) return;
-    const top = vidRef.current.getBoundingClientRect().top;
-    if (top > window.innerHeight || top < 0) {
-      vidRef.current.pause();
-      vidRef.current.currentTime = 0;
-    }
-  };
-  window.addEventListener("scroll", onScroll);
-
-  const isVideoPlaying = () => {
-    const hasPlayed = vidRef.current?.played.length
-      ? vidRef.current?.played.length > 0
-      : false;
-
-    if (!hasPlayed) return false;
-
-    return (
-      vidRef.current?.currentTime !== 0 &&
-      !vidRef.current?.paused &&
-      !vidRef.current?.ended
-    );
-  };
-
-  const playVideo = () => vidRef.current?.play();
-  const pauseVideo = () => vidRef.current?.pause();
-  const toggleVideoPlaying = () =>
-    isVideoPlaying() ? pauseVideo() : playVideo();
+  const addRefs = useScrollTrigger();
 
   return (
-    <div
-      className="band"
-      ref={(r) => r && fadeRefs.current.push(r)}
-      onMouseEnter={() => playVideo()}
-      onMouseLeave={() => pauseVideo()}
-    >
-      {images && (
-        <ImageVideo
-          onTouchEnd={toggleVideoPlaying}
-          vidRef={vidRef}
-          image={images[0]}
-          link={`/projects/${id}`}
-        />
-      )}
+    <div className="band" ref={addRefs}>
+      {media && <Media src={thumbnail} link={`/projects/${id}`} />}
       <div className={`description  ${index % 2 !== 0 && "reverse"}`}>
         <div className="title-container">
           <div className="title">

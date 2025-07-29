@@ -1,32 +1,24 @@
-import "./ImageVideo.scss";
+import "./Media.scss";
 
 import { MutableRefObject, PropsWithChildren } from "react";
-import { Image, Video } from "@Projects";
+import { Image, isImage, isVideo, Video } from "@Projects";
 
-interface ImageVideoProps {
-  onTouchEnd: () => void;
+interface MediaProps {
   vidRef?: MutableRefObject<HTMLVideoElement | null>;
-  video?: Video;
-  image?: Image;
+  src: Image | Video;
   link?: string;
 }
 
-export const ImageVideo = ({
-  video,
-  image,
-  vidRef,
-  onTouchEnd,
-  link,
-}: ImageVideoProps) => {
-  if (video) {
-    if (video.type === "url") {
+export const Media = ({ src, vidRef, link }: MediaProps) => {
+  if (isVideo(src)) {
+    if (src.type === "youtube") {
       return (
         <Container link={link}>
           <iframe
             className="video url"
-            src={video.string}
+            src={src.src}
             allowFullScreen
-            title={image?.alt}
+            title={src.title}
           />
         </Container>
       );
@@ -36,23 +28,21 @@ export const ImageVideo = ({
       <Container link={link}>
         <video
           className="video file"
-          controls
           autoPlay
           loop
-          title={image?.alt}
+          title={src.title}
           ref={vidRef}
-          onTouchEnd={onTouchEnd}
         >
-          <source src={video.string} title={image?.alt} />
+          <source src={src.src} title={src.title} />
         </video>
       </Container>
     );
   }
 
-  if (image) {
+  if (isImage(src)) {
     return (
       <Container link={link}>
-        <img className="image" src={image.src} alt={image?.alt} />
+        <img className="image" src={src.src} alt={src.alt} />
       </Container>
     );
   }

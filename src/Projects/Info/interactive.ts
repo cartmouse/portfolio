@@ -22,13 +22,15 @@ export const interactive: ProjectCategory = {
       desc: "Mobile, musical fidget experience with physics based interactions and immersive spacial audio",
       text: `Playtonik is a musical, fidget experience. It uses physics-based interactions, immersive spatial audio and dynamic haptic feedback for a fun, relaxing experience.
 
-      I joined this project a few weeks before the v1 launch. In that time, I implemented the "free spin" control, made each shape have a distinct sound, and designed the haptic patterns for each shape.`,
+      I've played many roles in this project. From implementing features such as the free spin control, and the looper. To designing the haptic patterns for each shape and creating demonstration and marketing content.`,
       tags: [unityTag, iosTag],
-      images: [{ src: asset("playtonik.jpg"), alt: "The Playtonik logo" }],
-      video: {
-        type: "url",
-        string: "https://www.youtube.com/embed/MkLJ0BE3qDk",
-      },
+      media: [
+        {
+          type: "youtube",
+          src: "https://www.youtube.com/embed/MkLJ0BE3qDk",
+          title: "playtonik",
+        },
+      ],
       links: [
         {
           url: "https://5of12.co.uk/#playtonik",
@@ -39,6 +41,7 @@ export const interactive: ProjectCategory = {
           text: "App Store",
         },
       ],
+      thumbnail: { src: asset("playtonik.jpg"), alt: "The Playtonik logo" },
     },
     {
       id: "madronzio",
@@ -49,14 +52,11 @@ export const interactive: ProjectCategory = {
 
       The high quality render animations were achieved by exporting frames of a video to PNGs, then rendering them in sequence to a canvas. This allowed for fine control over what frame was displayed at a given moment, giving a more engaging user experience.`,
       tags: [tsTag, reactTag, tauriTag],
-      images: [
-        {
-          src: asset("madronzio.jpg"),
-          alt: "A kiosk showing a perfume bottle being explored.",
-        },
-      ],
-      video: { type: "file", string: asset("madronzio.mp4") },
-      alt: "A kiosk with a retail application being used. Showing the inner mechanics of a watch being explored.",
+      media: [{ type: "url", src: asset("madronzio.mp4"), title: "madronzio" }],
+      thumbnail: {
+        src: asset("madronzio.jpg"),
+        alt: "A kiosk showing a perfume bottle being explored.",
+      },
     },
     {
       id: "ballpit",
@@ -65,9 +65,8 @@ export const interactive: ProjectCategory = {
       desc: "Gamified, interactive experience for branch presentation",
       text: "Ballpit was created to demonstrate a game-like experience for brand presentation. It was designed to be intuative and engaging to draw people into the experience and engage with the brand on show.",
       tags: [tsTag, reactTag, tauriTag, electronTag, threeJsTag],
-      images: [{ src: asset("ballpit.jpg"), alt: "" }],
-      video: { type: "file", string: asset("ballpit.mp4") },
-      alt: 'A kiosk with a brand experience application being used. The user is prompted to "clear the balls" then balls enter the screen, the user moves them around, emptying the pit. A message reading "TouchFree is engaging" is displayed under the balls.',
+      media: [{ type: "url", src: asset("ballpit.mp4"), title: "ballpit" }],
+      thumbnail: { src: asset("ballpit.jpg"), alt: "" },
     },
     {
       id: "storefront",
@@ -78,9 +77,10 @@ export const interactive: ProjectCategory = {
 
       This allowed the exploration of features not possible in the standard touchscreen environment, such as hover states and selection progress.`,
       tags: [tsTag, reactTag, tauriTag, electronTag],
-      images: [{ src: asset("storefront.jpg"), alt: "" }],
-      video: { type: "file", string: asset("storefront.mp4") },
-      alt: "A kiosk with a quick service retail application being used. The user navigates through a series of food menus, selecting their order.",
+      media: [
+        { type: "url", src: asset("storefront.mp4"), title: "storefront" },
+      ],
+      thumbnail: { src: asset("storefront.jpg"), alt: "" },
     },
     {
       id: "shooh",
@@ -91,9 +91,8 @@ export const interactive: ProjectCategory = {
       
       Development of this experience involved lots of custom graphics programming such as writing shaders to create the "scanner" and changing the colour of the shoe model; and creating the particle effects. This was all implemented utilising the three.js library.`,
       tags: [tsTag, reactTag, tauriTag, electronTag, threeJsTag],
-      images: [{ src: asset("shooh.jpg"), alt: "" }],
-      video: { type: "file", string: asset("shooh.mp4") },
-      alt: 'A kiosk with a product customisation application being used. The user is prompted to "pull scanner down" which reveals a training shoe. The shoe is rotated by the user swiping their hand. The shoe is expanded when a slider is moved along a track, then customised by selecting a section of the shoe and selecting a colour.',
+      media: [{ type: "url", src: asset("shooh.mp4"), title: "shooh" }],
+      thumbnail: { src: asset("shooh.jpg"), alt: "" },
     },
   ],
 };

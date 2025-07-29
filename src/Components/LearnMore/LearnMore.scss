@@ -90,19 +90,40 @@
       gap: vars.$xs;
     }
 
-    .media-container {
-      width: 100%;
-      aspect-ratio: 1.77;
-    }
-
     .text {
       white-space: pre-wrap;
     }
 
     .more-images {
+      width: 100%;
       display: grid;
-      grid-template-columns: repeat(auto-fill, 45%);
-      gap: vars.$lg;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: vars.$xs;
+
+      @media (max-width: vars.$trigger-size) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .media-container {
+        aspect-ratio: 1;
+
+        grid-column: span 1;
+        grid-row: span 1;
+
+        iframe {
+          aspect-ratio: 1.77;
+        }
+
+        &:nth-child(1) {
+          aspect-ratio: unset;
+          @media (max-width: vars.$trigger-size) {
+            grid-column: span 2;
+            grid-row: span 2;
+          }
+          grid-column: span 3;
+          grid-row: span 3;
+        }
+      }
     }
   }
 }

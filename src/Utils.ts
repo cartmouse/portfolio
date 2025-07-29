@@ -24,7 +24,9 @@ export const alterColor = (color: string, amount: number) => {
   return `#${split.join("")}`;
 };
 
-export const useScrollTrigger = () => {
+type AddRef = (r: HTMLElement | null) => void;
+
+export const useScrollTrigger = (): AddRef => {
   const refs = useRef<Element[]>([]);
 
   const onScroll = () => {
@@ -32,22 +34,35 @@ export const useScrollTrigger = () => {
     if (elems.length == 0) return;
 
     elems.forEach((elem) => {
-      const top = elem.getBoundingClientRect().top;
-
-      if (elem.classList.contains("enter") && top > window.innerHeight) {
-        elem.classList.remove("enter");
-      }
-
       if (
-        !elem.classList.contains("enter") &&
-        top >= 0 &&
-        top <= window.innerHeight
+        elem.classList.contains("enter") &&
+        elem.getBoundingClientRect().top > window.innerHeight
       ) {
-        elem.classList.add("enter");
+        elem.classList.remove("enter");
+      } else {
+        addEnterClass(elem);
       }
     });
   };
   window.addEventListener("scroll", onScroll);
 
-  return refs;
+  const addRef = (r: HTMLElement | null) => {
+    if (r) {
+      addEnterClass(r);
+      refs.current.push(r);
+    }
+  };
+
+  return addRef;
+};
+
+const addEnterClass = (elem: Element) => {
+  const top = elem.getBoundingClientRect().top;
+  if (
+    !elem.classList.contains("enter") &&
+    top >= 0 &&
+    top <= window.innerHeight
+  ) {
+    elem.classList.add("enter");
+  }
 };

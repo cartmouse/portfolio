@@ -14,7 +14,7 @@ interface ProjectsProps {
 }
 
 export const Projects = ({ bandRefs }: ProjectsProps) => {
-  const titleRefs = useScrollTrigger();
+  const addRefs = useScrollTrigger();
 
   return (
     <div className="projects">
@@ -28,10 +28,8 @@ export const Projects = ({ bandRefs }: ProjectsProps) => {
             id={`${anchor}`}
             ref={(r) => (bandRefs.current[`projects/${anchor}`] = r)}
           />
-          <div className="cat-header">
-            <h2 className="title" ref={(r) => r && titleRefs.current.push(r)}>
-              {title}
-            </h2>
+          <div className="cat-header" ref={addRefs}>
+            <h2 className="title">{title}</h2>
             <p className="description">{description}</p>
           </div>
           <Category projects={projects} category={anchor} />
@@ -50,6 +48,8 @@ const Category = ({
   category: string;
   limit?: number;
 }) => {
+  const addRefs = useScrollTrigger();
+
   if (projects.length <= limit) {
     return (
       <div className="bands">
@@ -65,14 +65,14 @@ const Category = ({
       {projects.slice(0, limit).map((info, i) => (
         <Band key={i} info={info} index={i} />
       ))}
-      <div className="see-more">
+      <div className="see-more" ref={addRefs}>
         <Slider
           className="images"
           dots
           slidesToShow={window.innerWidth >= 650 ? 3 : 1}
         >
-          {projects.slice(limit, limit + 3).map(({ images }) => (
-            <img src={images?.[0].src} alt={images?.[0].alt} />
+          {projects.slice(limit, limit + 3).map(({ thumbnail }, i) => (
+            <img src={thumbnail.src} alt={thumbnail.alt} key={`img-${i}`} />
           ))}
         </Slider>
         <LinkButton

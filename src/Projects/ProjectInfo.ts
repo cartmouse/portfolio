@@ -9,8 +9,9 @@ export interface Link {
 }
 
 export interface Video {
-  type: "url" | "file";
-  string: string;
+  type: "youtube" | "url";
+  src: string;
+  title: string;
 }
 
 export interface Image {
@@ -23,12 +24,25 @@ export interface Project {
   title: string;
   subtitle: string;
   desc: string;
-  text?: string;
-  alt?: string;
-  images?: Image[];
-  video?: Video;
+  thumbnail: Image;
+  media: (Image | Video)[];
+  text: string;
   links?: Link[];
   tags?: Tag[];
+}
+
+export function isVideo(media: Image | Video): media is Video {
+  return (
+    (media as Video).type !== undefined &&
+    ((media as Video).type === "url" || (media as Video).type === "youtube") &&
+    (media as Video).src !== undefined
+  );
+}
+
+export function isImage(media: Image | Video): media is Image {
+  return (
+    (media as Image).src !== undefined && (media as Image).alt !== undefined
+  );
 }
 
 export interface ProjectCategory {

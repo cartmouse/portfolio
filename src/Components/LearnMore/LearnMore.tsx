@@ -1,7 +1,7 @@
 import "./LearnMore.scss";
 
 import { Footer } from "../Footer/Footer";
-import { ImageVideo } from "../ImageVideo/ImageVideo";
+import { Media } from "../Media/Media";
 import { LinkButton } from "../LinkButton/LinkButton";
 import { Tags, Project } from "@Projects";
 import { BackButton } from "../BackButton/BackButton";
@@ -23,12 +23,7 @@ export const LearnMore = ({ info }: LearnMoreProps) => {
           <p className="desc">{info.desc}</p>
         </div>
         <div className="more-images">
-          {info.video && (
-            <ImageVideo onTouchEnd={() => {}} video={info.video} />
-          )}
-          {info.images?.map((image, i) => (
-            <ImageVideo onTouchEnd={() => {}} image={image} key={i + 1} />
-          ))}
+          {info.media?.map((media, i) => <Media src={media} key={i + 1} />)}
         </div>
         <Tags tags={info.tags} />
         <p className="text">{info.text}</p>

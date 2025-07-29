@@ -28,6 +28,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       {projects.map((project) => createRoutes(project))}
       {projects.map((project) => (
         <Route
+          key={`${project.anchor}`}
           path={`/projects/${project.anchor}`}
           element={<MoreProjects category={project} />}
         />

@@ -1,3 +1,4 @@
+import { useScrollTrigger } from "@Utils";
 import { BackButton } from "../BackButton/BackButton";
 import { Band } from "../Band/Band";
 import { Footer } from "../Footer/Footer";
@@ -9,12 +10,14 @@ export const MoreProjects = ({
 }: {
   category: ProjectCategory;
 }) => {
+  const addRefs = useScrollTrigger();
+
   return (
     <div className="more-container">
       <nav className="navbar">
         <BackButton />
       </nav>
-      <div className="header">
+      <div className="header" ref={addRefs}>
         <h1 className="title">{title}</h1>
         <p className="cat-desc">{description}</p>
       </div>
